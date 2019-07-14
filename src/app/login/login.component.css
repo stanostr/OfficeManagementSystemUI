@@ -5,13 +5,6 @@
 	outline: none;
 }
 
-body {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
 .login-form {
     font: 16px/2em Lato, serif;
 	margin: 100px auto;

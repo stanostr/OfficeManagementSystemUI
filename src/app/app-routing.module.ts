@@ -4,11 +4,17 @@ import { AdminHomepageComponent } from './admin/admin-homepage.component';
 import { EmployeeHomepageComponent } from './employee/employee-homepage.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
-  { path: 'admin', component: AdminHomepageComponent },
-  { path: 'employee', component: EmployeeHomepageComponent },
+  {
+    path: 'admin', component: AdminHomepageComponent, canActivate: [AuthGuard],
+    children: [
+   
+    ]
+  },
+  { path: 'employee', component: EmployeeHomepageComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: '', component: LoginComponent },
   {

@@ -19,8 +19,8 @@ export class AuthenticationService {
   constructor(private httpClient: HttpClient) { }
 
   authenticate(username: string, password: string): Observable<HttpResponse<LoginResponse>> {
-    sessionStorage.removeItem('token'); //remove any data that somehow managed to persist
-    sessionStorage.removeItem('role'); //remove any data that somehow managed to persist
+    sessionStorage.removeItem('token'); //remove any data that is still persisted
+    sessionStorage.removeItem('role'); //remove any data that is still persisted
     const request = new LoginRequest(username, password);
     
     return this.httpClient.post<LoginResponse>('http://localhost:8081/login', request, {observe: 'response'}).map(loginResponse => {

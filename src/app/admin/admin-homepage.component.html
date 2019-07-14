@@ -1,2 +1,33 @@
 <app-admin-header></app-admin-header>
-<p>admin-homepage works!</p>
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div *ngIf="currentUser" class="sidebar-heading">Welcome {{currentUser.firstName}}</div>
+        <img src="assets/images/default_user_img.png" class="img-responsive" alt="" id="profile-img">
+        <div class="list-group list-group-flush">
+            <div class="list-group-item list-group-item-action bg-light">Date: {{currTime | date}}</div>
+            <div class="list-group-item list-group-item-action bg-light">Time: {{currTime | date:'h:mm a'}}</div>
+            <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Overview</a>
+            <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Notices</a>
+            <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Broadcast Notice</a>
+            <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Leave Requests</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent d-block d-md-none">
+            <button class="btn btn-secondary" id="menu-toggle">Sidebar</button>
+        </nav>
+        <div class="container-fluid">
+            <div class="bg-light" id="main-container">
+                <app-admin-dashboard></app-admin-dashboard>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>

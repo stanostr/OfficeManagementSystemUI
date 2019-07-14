@@ -11,6 +11,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpClientService } from './_services/http-client.service';
 import { HttpInterceptorService } from './_services/http-interceptor.service';
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { EmployeeHeaderComponent } from './employee/employee-header/employee-header.component';
+import { AuthGuard } from './auth.guard';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import { AdminHeaderComponent } from './admin/admin-header/admin-header.componen
     LoginComponent,
     LogoutComponent,
     AdminHeaderComponent,
+    EmployeeHeaderComponent,
+    AdminDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,7 @@ import { AdminHeaderComponent } from './admin/admin-header/admin-header.componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [HttpClientService, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
+  providers: [AuthGuard, HttpClientService, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
