@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
-import { EmployeeHomepageComponent } from './employee-homepage/employee-homepage.component';
+import { AdminHomepageComponent } from './admin/admin-homepage.component';
+import { EmployeeHomepageComponent } from './employee/employee-homepage.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 
