@@ -30,23 +30,24 @@
         <img src="assets/images/default_user_img.png" class="img-responsive" alt="" id="profile-img">
         <div class="list-group list-group-flush">
             <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Overview</a>
-            <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Notices</a>
+            <a [routerLink]="['./employees']" class="list-group-item list-group-item-action bg-light">Users</a>
             <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Attendance</a>
-            <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Leave Requests</a>
-            <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Tasks</a>
+            <a [routerLink]="['./leave_requests']"
+                class="list-group-item list-group-item-action bg-light">Leave Requests</a>
+            <a [routerLink]="['./tasks']" class="list-group-item list-group-item-action bg-light">Tasks</a>
             <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Complaints</a>
         </div>
     </div>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-
+        <!-- Menu expand-->
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent d-block d-md-none">
             <button class="btn btn-secondary" id="menu-toggle">Sidebar</button>
         </nav>
         <div class="container-fluid">
             <div class="bg-light" id="main-container">
-                <app-admin-dashboard></app-admin-dashboard>
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div>

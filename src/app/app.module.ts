@@ -13,6 +13,10 @@ import { HttpInterceptorService } from './_services/http-interceptor.service';
 import { EmployeeHeaderComponent } from './employee/employee-header/employee-header.component';
 import { AuthGuard } from './auth.guard';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminReservationsComponent } from './admin/admin-reservations/admin-reservations.component';
+import { AdminTasksComponent } from './admin/admin-tasks/admin-tasks.component';
+import { AdminLeavesComponent } from './admin/admin-leaves/admin-leaves.component';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
     LogoutComponent,
     EmployeeHeaderComponent,
     AdminDashboardComponent,
+    AdminReservationsComponent,
+    AdminTasksComponent,
+    AdminLeavesComponent,
+    AdminUsersComponent,
   ],
   imports: [
     BrowserModule,
