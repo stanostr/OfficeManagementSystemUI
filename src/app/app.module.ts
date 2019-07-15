@@ -10,7 +10,6 @@ import { LogoutComponent } from './logout/logout.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpClientService } from './_services/http-client.service';
 import { HttpInterceptorService } from './_services/http-interceptor.service';
-import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
 import { EmployeeHeaderComponent } from './employee/employee-header/employee-header.component';
 import { AuthGuard } from './auth.guard';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
@@ -22,7 +21,6 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
     AdminHomepageComponent,
     LoginComponent,
     LogoutComponent,
-    AdminHeaderComponent,
     EmployeeHeaderComponent,
     AdminDashboardComponent,
   ],

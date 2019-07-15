@@ -10,9 +10,14 @@ import { GetAdminDetailsService } from '../_services/get-admin-details.service';
 export class AdminHomepageComponent implements OnInit {
   currentUser: Admin;
   currTime: Date = new Date(); //to display current date and time on screen 
+  showMenu: boolean = false;
+
+  toggleCollapse() {
+    this.showMenu = !this.showMenu
+  }
 
   constructor(private getAdminService: GetAdminDetailsService) {
-
+    //updates the time at 30 second intervals
     setInterval(() => {
       this.currTime = new Date();
     }, 30);
@@ -20,8 +25,10 @@ export class AdminHomepageComponent implements OnInit {
 
   ngOnInit() {
     this.getAdminService.getAccount().subscribe(
-      response => { this.currentUser = response; 
-      console.log(response.firstName);}
+      response => {
+      this.currentUser = response;
+        console.log(response.firstName);
+      }
     );
 
   }

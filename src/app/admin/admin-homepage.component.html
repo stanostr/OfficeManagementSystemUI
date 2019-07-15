@@ -1,4 +1,27 @@
-<app-admin-header></app-admin-header>
+<!-- Top nav bar-->
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" id="primary-title" routerLink="/admin">E-Office Suite</a>
+    <button (click)="toggleCollapse()" class="navbar-toggler" type="button" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div [class.show]="showMenu" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-collapse">
+            <div class="navbar-nav">
+                <div class="nav-item nav-link">Date: {{currTime | date}}</div>
+                <div class="nav-item nav-link">Time: {{currTime | date:'h:mm a'}}</div>
+                <!-- <a class="nav-item nav-link" routerLink="/admin">Tasks</a>
+                    <a class="nav-item nav-link" routerLink="/admin">Users</a>
+                    <a class="nav-item nav-link" routerLink="/admin">Complaints</a> -->
+            </div>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" routerLink="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+
+</nav>
 <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
@@ -6,15 +29,14 @@
         <div *ngIf="currentUser" class="sidebar-heading">Welcome {{currentUser.firstName}}</div>
         <img src="assets/images/default_user_img.png" class="img-responsive" alt="" id="profile-img">
         <div class="list-group list-group-flush">
-            <div class="list-group-item list-group-item-action bg-light">Date: {{currTime | date}}</div>
-            <div class="list-group-item list-group-item-action bg-light">Time: {{currTime | date:'h:mm a'}}</div>
             <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Overview</a>
             <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Notices</a>
-            <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Broadcast Notice</a>
+            <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Attendance</a>
             <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Leave Requests</a>
+            <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Tasks</a>
+            <a routerLink="/admin" class="list-group-item list-group-item-action bg-light">Complaints</a>
         </div>
     </div>
-    <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
@@ -28,6 +50,4 @@
             </div>
         </div>
     </div>
-    <!-- /#page-content-wrapper -->
-
 </div>
