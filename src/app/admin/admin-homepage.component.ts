@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Admin } from '../_model/admin';
 import { GetAdminDetailsService } from '../_services/get-admin-details.service';
 
@@ -27,10 +27,15 @@ export class AdminHomepageComponent implements OnInit {
     this.getAdminService.getAccount().subscribe(
       response => {
       this.currentUser = response;
-        console.log(response.firstName);
-      }
+      sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+    }
     );
+  }
 
+  //hide the menu (if its open) on screen resize
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    if(window.innerWidth<768) this.showMenu = false;
   }
 
 }

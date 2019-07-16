@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from 'src/app/_model/task';
+import { AdminTaskService } from 'src/app/_services/admin-task.service';
 
 @Component({
   selector: 'app-admin-tasks',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-tasks.component.css']
 })
 export class AdminTasksComponent implements OnInit {
-
-  constructor() { }
+  tasks:Task[];
+  constructor(private taskService: AdminTaskService) { }
 
   ngOnInit() {
+    this.taskService.getTasks().subscribe(
+      response => {
+        this.tasks = response;
+      }
+    );
   }
-
 }

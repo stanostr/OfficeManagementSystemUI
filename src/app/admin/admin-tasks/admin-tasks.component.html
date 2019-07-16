@@ -1,11 +1,45 @@
-<h1 class="mt-4">Employee tasks</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-    culpa qui officia deserunt mollit anim id est laborum</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-    culpa qui officia deserunt mollit anim id est laborum</p>
+<nav class="navbar navbar-expand-md navbar-light bg-light subcomponent-navbar">
+    <a class="navbar-brand" id="primary-title" routerLink="/admin/tasks">Employee tasks</a>
+    <div class="navbar-collapse">
+        <div class="navbar-nav">
+            <div class="nav-item nav-link">Assigned tasks</div>
+            <div class="nav-item nav-link">Assign new task</div>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid table-responsive" id="wrapper">
+    <table id="task-table" class="table-hover">
+        <thead>
+            <tr class="d-flex">
+                <th style="width: 20%">Task Name</th>
+                <th style="width: 20%">Assigned to</th>
+                <th style="width: 8%">Done?</th>
+                <th style="width: 7%"></th>
+                <th style="width: 7%"></th>
+                <th>Due</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks" class="d-flex">
+                <td style="width: 20%" class="border-right name-column">{{task.taskName}}</td>
+                <td style="width: 20%" class="border-right name-column">{{task.employeeName}}</td>
+                <td style="width: 8%" class="border-right">
+                    <p *ngIf="task.completed" style="text-align: center">
+                        <span class="fas fa-check"></span>
+                    </p>
+                    <p *ngIf="!task.completed" style="text-align: center">
+                        <span class="fas fa-minus"></span>
+                    </p>
+                </td>
+                <td style="width: 7%"><a href="#" class="btn btn-success btn-small">
+                        <span class="fas fa-edit"></span>
+                    </a></td>
+                <td class="border-right" style="width: 7%"><a class="btn btn-danger btn-small">
+                        <span class="fas fa-trash"></span>
+                    </a></td>
+                <td>{{task.dueDate | date}}</td>
+            </tr>
+            <p *ngIf="tasks==null" class="alert alert-danger">No tasks found!</p>
+        </tbody>
+    </table>
+</div>

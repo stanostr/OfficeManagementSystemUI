@@ -8,7 +8,6 @@ import { AdminHomepageComponent } from './admin/admin-homepage.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { HttpClientService } from './_services/http-client.service';
 import { HttpInterceptorService } from './_services/http-interceptor.service';
 import { EmployeeHeaderComponent } from './employee/employee-header/employee-header.component';
 import { AuthGuard } from './auth.guard';
@@ -17,6 +16,7 @@ import { AdminReservationsComponent } from './admin/admin-reservations/admin-res
 import { AdminTasksComponent } from './admin/admin-tasks/admin-tasks.component';
 import { AdminLeavesComponent } from './admin/admin-leaves/admin-leaves.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { AdminTaskDetailComponent } from './admin/admin-tasks/admin-task-detail/admin-task-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
     AdminTasksComponent,
     AdminLeavesComponent,
     AdminUsersComponent,
+    AdminTaskDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,7 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthGuard, HttpClientService, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
+  providers: [AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
