@@ -25,3 +25,7 @@ td {
 td p{
     text-align: center;
 }
+
+.fa-plus {
+    margin-right: 8px;
+}

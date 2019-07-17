@@ -56,6 +56,10 @@ body {
   margin-left: 0;
 }
 
+.nav-item-red {
+  color: red;
+}
+
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;

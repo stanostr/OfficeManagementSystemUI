@@ -4,7 +4,7 @@ export class Task {
     employeeName: string;
     taskName: string;
     description: string;
-    startDate: Date;
-    dueDate: Date;
+    startDate: string;
+    dueDate: string;
     completed: boolean;
 }

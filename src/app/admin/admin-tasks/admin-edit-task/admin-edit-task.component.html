@@ -1,0 +1,48 @@
+<div class="task-form">
+        <form method="post" action="" role="create" ngNativeValidate>
+            <h4 style="text-align: center" class="display-5">Edit Task</h4>
+            <!-- <img src="assets/images/logo.png" class="img-responsive" alt="" /> -->
+    
+            <div>
+                <div class="line-1">
+                    <label for="task-name">Task Name:</label>
+                    <input [(ngModel)]="task.taskName" type="text" name="taskName" value="{{task.taskName}}" placeholder="Task Name" required
+                        class="form-control input-md"/>
+                </div>
+                <div class="line-1">
+                    <label for="employee-id">Employee ID:</label>
+                    <input disabled type="number" name="employeeId" value="{{task.employeeId}}" placeholder="Employee ID" 
+                        class="form-control input-md" />
+                </div>
+            </div>
+            <div>
+                <div class="line-1">
+                    <label for="assigned">Assigned On:</label>
+                    <div class="input-group">
+                        <input type="date" required class="form-control" placeholder="yyyy-mm-dd" [(ngModel)]="startDate"
+                        name="startDate"
+                            ngbDatepicker #d1="ngbDatepicker">
+                    </div>
+                </div>
+                <div class="line-1">
+                    <label for="due-date">Due Date:</label>
+                    <div class="input-group">
+                        <input type="date" name="dueDate" required class="form-control" placeholder="yyyy-mm-dd"  [(ngModel)]="dueDate"
+                            ngbDatepicker #d2="ngbDatepicker">
+                    </div>
+                </div>
+            </div>
+            <div class="line-2">
+                <textarea name="description" class="form-control input-md" [(ngModel)]="task.description" rows="4"
+                    placeholder="Task Description"></textarea>
+            </div>
+            <div>
+                Note: Updating task will not notify the employee.
+            </div>
+            <div md-dialog-actions>
+                <button mat-button class="btn btn-primary" style="margin-right: 16px" (click)="validate()">Update
+                    Task</button>
+                <button mat-button class="btn btn-secondary" (click)="dialogRef.close(null)">Cancel</button>
+            </div>
+        </form>
+    </div>

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule, NgbDateAdapter, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,10 +14,14 @@ import { EmployeeHeaderComponent } from './employee/employee-header/employee-hea
 import { AuthGuard } from './auth.guard';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminReservationsComponent } from './admin/admin-reservations/admin-reservations.component';
-import { AdminTasksComponent } from './admin/admin-tasks/admin-tasks.component';
+import { AdminTasksComponent} from './admin/admin-tasks/admin-tasks.component';
 import { AdminLeavesComponent } from './admin/admin-leaves/admin-leaves.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
-import { AdminTaskDetailComponent } from './admin/admin-tasks/admin-task-detail/admin-task-detail.component';
+import { MatDialogModule, MatDialogRef } from "@angular/material";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminNewTaskComponent } from './admin/admin-tasks/admin-new-task/admin-new-task.component';
+import { AdminDeleteTaskComponent } from './admin/admin-tasks/admin-delete-task/admin-delete-task.component';
+import { AdminEditTaskComponent } from './admin/admin-tasks/admin-edit-task/admin-edit-task.component';
 
 @NgModule({
   declarations: [
@@ -31,15 +36,21 @@ import { AdminTaskDetailComponent } from './admin/admin-tasks/admin-task-detail/
     AdminTasksComponent,
     AdminLeavesComponent,
     AdminUsersComponent,
-    AdminTaskDetailComponent
+    AdminNewTaskComponent,
+    AdminDeleteTaskComponent,
+    AdminEditTaskComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    NgbModule
   ],
-  providers: [AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
+  entryComponents: [AppComponent, AdminNewTaskComponent, AdminDeleteTaskComponent, AdminEditTaskComponent],
+  providers: [AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

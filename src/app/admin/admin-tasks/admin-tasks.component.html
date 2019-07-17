@@ -2,28 +2,30 @@
     <a class="navbar-brand" id="primary-title" routerLink="/admin/tasks">Employee tasks</a>
     <div class="navbar-collapse">
         <div class="navbar-nav">
-            <div class="nav-item nav-link">Assigned tasks</div>
-            <div class="nav-item nav-link">Assign new task</div>
+            <div class="nav-item nav-link">My tasks</div>
+            <div class="nav-item nav-link">All tasks</div>
+            <div class="nav-item nav-link"><button class="btn btn-success" (click)="openNewTaskDialog(task)">  <span class="fas fa-plus"></span>New Task
+                  </button></div>
         </div>
     </div>
 </nav>
 <div class="container-fluid table-responsive" id="wrapper">
-    <table id="task-table" class="table-hover">
+    <table id="task-table" class="table-hover" style="width: 100%">
         <thead>
             <tr class="d-flex">
-                <th style="width: 20%">Task Name</th>
+                <th style="width: 30%">Task Name</th>
                 <th style="width: 20%">Assigned to</th>
-                <th style="width: 8%">Done?</th>
-                <th style="width: 7%"></th>
-                <th style="width: 7%"></th>
-                <th>Due</th>
+                <th style="width: 15%">Done?</th>
+                <th style="width: 15%"></th>
+                <th style="width: 15%"></th>
+                <th style="width: 20%">Due</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let task of tasks" class="d-flex">
-                <td style="width: 20%" class="border-right name-column">{{task.taskName}}</td>
+                <td style="width: 30%" class="border-right name-column">{{task.taskName}}</td>
                 <td style="width: 20%" class="border-right name-column">{{task.employeeName}}</td>
-                <td style="width: 8%" class="border-right">
+                <td style="width: 15%" class="border-right">
                     <p *ngIf="task.completed" style="text-align: center">
                         <span class="fas fa-check"></span>
                     </p>
@@ -31,13 +33,13 @@
                         <span class="fas fa-minus"></span>
                     </p>
                 </td>
-                <td style="width: 7%"><a href="#" class="btn btn-success btn-small">
+                <td style="width: 15%"><a (click)="openEditTaskDialog(task)" class="btn btn-success btn-small">
                         <span class="fas fa-edit"></span>
                     </a></td>
-                <td class="border-right" style="width: 7%"><a class="btn btn-danger btn-small">
+                <td class="border-right" style="width: 15%"><a (click)="openDeleteTaskDialog(task)" class="btn btn-danger btn-small">
                         <span class="fas fa-trash"></span>
                     </a></td>
-                <td>{{task.dueDate | date}}</td>
+                <td style="width: 20%">{{task.dueDate | date}}</td>
             </tr>
             <p *ngIf="tasks==null" class="alert alert-danger">No tasks found!</p>
         </tbody>

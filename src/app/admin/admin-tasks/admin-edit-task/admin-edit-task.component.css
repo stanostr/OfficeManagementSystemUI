@@ -1,0 +1,38 @@
+*{
+    max-width: 600px;
+}
+form[role=login] {
+	color: #5d5d5d;
+	background: #f2f2f2;
+	padding: 26px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+.task-form {
+    font: 16px/2em Lato, serif;
+}
+
+.line-1 {
+    float: left;
+    width: 45%;
+    margin-right: 8px;
+}
+
+.line-2 textarea {
+    float:left;
+    width: 100%;
+    margin: 8px;
+}
+
+	form[role=create] input,
+    form[role=create] button,
+    form[role=create] textarea {
+		font-size: 18px;
+        margin: 12px 8px; 
+	}
+	form[role=create] > div {
+		text-align: center;
+	}
+	
