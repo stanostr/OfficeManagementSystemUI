@@ -1,0 +1,57 @@
+<div class="add-user-form">
+    <form method="post" action="" role="create" ngNativeValidate>
+        <h4 style="text-align: center" class="display-5">Add New Employee</h4>
+        <div *ngIf="error" class="alert alert-danger" role="alert">{{errorMessage}}</div>
+        <div>
+            <div class="line-1">
+                <label for="first-name">First Name:</label>
+                <input required [(ngModel)]="employee.firstName" type="text" name="first-name" placeholder="First Name"
+                    class="form-control input-md" />
+            </div>
+            <div class="line-1">
+                <label for="last-name">Last Name:</label>
+                <input required [(ngModel)]="employee.lastName" type="text" name="last-name" placeholder="Last Name"
+                    class="form-control input-md" />
+            </div>
+        </div>
+        <div>
+            <div class="line-1">
+                <label for="contact-number">Contact Number:</label>
+                <input required [(ngModel)]="employee.contactNumber" type="tel" name="contact-number"
+                    placeholder="Phone Number" class="form-control input-md" />
+            </div>
+            <div class="line-1">
+                <label for="email">E-mail:</label>
+                <input required [(ngModel)]="employee.email" type="email" name="email" placeholder="E-mail"
+                    class="form-control input-md" />
+            </div>
+        </div>
+        <div>
+            <div class="line-1">
+                <label for="password">Password:</label>
+                <input required minlength="6" [(ngModel)]="employee.password" type="password" name="password" placeholder="Password"
+                    class="form-control input-md" />
+            </div>
+            <div class="line-1">
+                <label for="confirm-password">Confirm Password:</label>
+                <input required minlength="6" name="confirm-password" [(ngModel)]="confirmPassword" type="password" 
+                    placeholder="Confirm Password" class="form-control input-md" />
+            </div>
+        </div>
+        <div class="line-2">
+            <label for="select-dept">Select Department</label>
+            <select (change)="setDept($event.target.value)" id="select-dept" class="form-control">
+                <option *ngFor="let dept of departments">
+                    {{dept.departmentName}}</option>
+            </select>
+        </div>
+        <div>
+            Employee ID will be auto-generated and all details will be sent to employee e-mail.
+        </div>
+        <div md-dialog-actions>
+            <button mat-button class="btn btn-primary" style="margin-right: 16px" (click)="validate()">Create
+                Employee</button>
+            <button mat-button class="btn btn-secondary" (click)="dialogRef.close(null)">Cancel</button>
+        </div>
+    </form>
+</div>

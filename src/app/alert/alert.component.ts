@@ -4,7 +4,6 @@ import { Alert, AlertType } from '../_model/alert';
 import { AlertService } from '../_services/alert.service';
 
 @Component({
-    moduleId: module.id,
     selector: 'alert',
     templateUrl: 'alert.component.html'
 })

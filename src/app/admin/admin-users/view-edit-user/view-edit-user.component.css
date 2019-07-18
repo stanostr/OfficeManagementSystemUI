@@ -1,0 +1,40 @@
+*{
+    max-width: 800px;
+}
+.data-field {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.display-5 {
+    clear: both;
+}
+.top-button {
+    float: right;
+}
+
+.view-user-form {
+    font: 16px/2em Lato, serif;
+}
+
+.line-1 {
+    float: left;
+    width: 45%;
+    margin-right: 8px;
+}
+
+.line-2 {
+    float:left;
+    width: 90%;
+    margin: 8px;
+}
+
+    form[role=edit] input,
+    form[role=edit] button,
+    form[role=edit] textarea {
+		font-size: 18px;
+        margin: 12px 8px; 
+	}
+	form[role=edit] > div {
+		text-align: center;
+	}

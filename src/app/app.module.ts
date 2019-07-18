@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule, NgbDateAdapter, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,9 @@ import { AdminDeleteTaskComponent } from './admin/admin-tasks/admin-delete-task/
 import { AdminEditTaskComponent } from './admin/admin-tasks/admin-edit-task/admin-edit-task.component';
 import { AlertComponent } from './alert/alert.component';
 import { AlertService } from './_services/alert.service';
+import { DeleteUserComponent } from './admin/admin-users/delete-user/delete-user.component';
+import { ViewEditUserComponent } from './admin/admin-users/view-edit-user/view-edit-user.component';
+import { AddUserComponent } from './admin/admin-users/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { AlertService } from './_services/alert.service';
     AdminNewTaskComponent,
     AdminDeleteTaskComponent,
     AdminEditTaskComponent,
-    AlertComponent
+    AlertComponent,
+    DeleteUserComponent,
+    ViewEditUserComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,7 @@ import { AlertService } from './_services/alert.service';
     BrowserAnimationsModule,
     NgbModule
   ],
-  entryComponents: [AppComponent, AdminNewTaskComponent, AdminDeleteTaskComponent, AdminEditTaskComponent],
+  entryComponents: [AppComponent, AdminNewTaskComponent, AdminDeleteTaskComponent, AdminEditTaskComponent, DeleteUserComponent, ViewEditUserComponent, AddUserComponent],
   providers: [AlertService, AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent]
 })
