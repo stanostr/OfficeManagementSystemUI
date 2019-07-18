@@ -54,7 +54,6 @@ export class AdminTasksComponent implements OnInit {
     });
     dialogRef.componentInstance.task = task;
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       if (result!=null) {
         this.taskService.updateTask(result).subscribe(
           response => {
@@ -103,6 +102,7 @@ export class AdminTasksComponent implements OnInit {
     );
   }
 
+  //possibly for sorting later.
   private compareName(a: Task, b:Task): number
   {
     if(a.taskName>b.taskName) return -1;

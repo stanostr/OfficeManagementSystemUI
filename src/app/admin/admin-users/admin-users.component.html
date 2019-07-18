@@ -8,13 +8,33 @@
             </div>
         </div>
     </nav>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-    culpa qui officia deserunt mollit anim id est laborum</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-    culpa qui officia deserunt mollit anim id est laborum</p>
+<alert></alert>
+<div class="container-fluid table-responsive" id="wrapper">
+    <table id="employee-table" class="table-hover" style="width: 100%">
+        <thead>
+            <tr class="d-flex">
+                <th style="width: 11%">ID</th>
+                <th style="width: 22%">Last Name</th>
+                <th style="width: 22%">First Name</th>
+                <th style="width: 12%"></th>
+                <th style="width: 12%"></th>
+                <th style="width: 21%">Dept.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees" class="d-flex">
+                <td style="width: 11%" class="border-right name-column">{{employee.id}}</td>
+                <td style="width: 22%" class="border-right name-column">{{employee.lastName}}</td>
+                <td style="width: 22%" class="border-right name-column">{{employee.firstName}}</td>
+                <td style="width: 12%"><a (click)="openEditTaskDialog(task)" class="btn btn-primary btn-small">
+                        <span class="fas fa-eye"></span>
+                    </a></td>
+                <td style="width: 12%"><a (click)="openDeleteTaskDialog(task)" class="btn btn-danger btn-small">
+                        <span class="fas fa-times"></span>
+                    </a></td>
+                <td *ngIf="employee.dept" style="width: 21%" class="border-right name-column">{{employee.dept.name}}</td>
+            </tr>
+            <p *ngIf="employees==null" class="alert alert-danger">No employees found!</p>
+        </tbody>
+    </table>
+</div>

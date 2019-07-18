@@ -1,4 +1,4 @@
-export class Department {
+export class Dept {
     id: number;
-    name: string;
+    departmentName: string;
 }

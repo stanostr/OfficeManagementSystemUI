@@ -1,4 +1,4 @@
-import { Department } from './department';
+import { Dept } from './department';
 
 export class Employee {
     id: number;
@@ -8,5 +8,5 @@ export class Employee {
     lastName: string;
     email: string;
     contactNumber: string;
-    department: Department;
+    dept: Dept;
 }
