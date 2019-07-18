@@ -5,6 +5,8 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { AdminNewTaskComponent } from './admin-new-task/admin-new-task.component';
 import { AdminDeleteTaskComponent } from './admin-delete-task/admin-delete-task.component';
 import { AdminEditTaskComponent } from './admin-edit-task/admin-edit-task.component';
+import { AlertService } from 'src/app/_services/alert.service';
+import { get } from 'http';
 
 @Component({
   selector: 'app-admin-tasks',
@@ -14,7 +16,8 @@ import { AdminEditTaskComponent } from './admin-edit-task/admin-edit-task.compon
 export class AdminTasksComponent implements OnInit {
   tasks: Task[];
   constructor(public dialog: MatDialog,
-    private taskService: AdminTaskService) { }
+    private taskService: AdminTaskService,
+    private alertService: AlertService) { }
 
   openNewTaskDialog(task: Task) {
     let dialogRef: MatDialogRef<AdminNewTaskComponent>;
@@ -25,14 +28,17 @@ export class AdminTasksComponent implements OnInit {
       if (result) {
         this.taskService.addTask(result).subscribe(
           response => {
-            if(response.status==201)
-            {
-              console.log("added successfully")
-              //todo add alerts for user
+            if (response.ok) {
+              this.tasks.push(response.body);
+              this.alertService.clear();
+              this.alertService.success("Task added successfully!");
             }
-            else {
-              console.log("not added because " + response.status + " " + response.statusText);
-            }
+          },
+          error => {
+            this.alertService.clear();
+            if (error.status == 404)
+              this.alertService.error("Employee ID not found!")
+            else this.alertService.error("An error has occurred: " + error.status + " " + error.statusText);
           }
         );
       }
@@ -48,20 +54,23 @@ export class AdminTasksComponent implements OnInit {
     });
     dialogRef.componentInstance.task = task;
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
+      console.log(result);
+      if (result!=null) {
         this.taskService.updateTask(result).subscribe(
           response => {
-            if(response.status==200)
-            {
-              console.log("updated successfully")
-              //todo add alerts for user
+            if (response.ok) {
+              this.alertService.clear();
+              this.alertService.success("Task updated successfully!");
             }
-            else {
-              console.log("not updated because " + response.status + " " + response.statusText);
-            }
+            this.getTasks();
+          },
+          error => {
+            this.alertService.clear();
+            this.alertService.error("An error has occurred: " + error.status + " " + error.statusText);
           }
         );
       }
+
       dialogRef = null;
     });
   }
@@ -74,6 +83,7 @@ export class AdminTasksComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        this.alertService.clear();
         this.taskService.deleteTask(task).subscribe(() =>
           this.tasks = this.tasks.filter(a => a !== task));
       }
@@ -82,11 +92,22 @@ export class AdminTasksComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getTasks();
+  }
+
+  getTasks() {
     this.taskService.getTasks().subscribe(
       response => {
         this.tasks = response;
       }
     );
+  }
+
+  private compareName(a: Task, b:Task): number
+  {
+    if(a.taskName>b.taskName) return -1;
+    if(b.taskName>a.taskName) return 1;
+    else return 0;
   }
 }
 

@@ -3,7 +3,6 @@ import { Task } from 'src/app/_model/task';
 import { MatDialogRef} from '@angular/material';
 import { NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
   selector: 'app-admin-new-task',
   templateUrl: './admin-edit-task.component.html',
@@ -18,29 +17,37 @@ export class AdminEditTaskComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.task = this.dialogRef.componentInstance.task;
-    console.log(this.task.startDate)
-    console.log(this.startDate)
+    this.task = Object.assign({}, this.dialogRef.componentInstance.task);
+    this.startDate = this.JSONtoDateStruct(this.task.startDate);
+    this.dueDate = this.JSONtoDateStruct(this.task.dueDate);
   }
 
   validate()
   {
     if(this.task.taskName && this.task.employeeId && this.startDate && this.dueDate)
     {
-      var startMonth:string = this.startDate.month.toString();
-      if(startMonth.length==1) startMonth = '0'+startMonth; 
-      
-      var startDay:string = this.startDate.day.toString();
-      if(startDay.length==1) startDay = '0'+startDay; 
-      
-      var endMonth:string = this.dueDate.month.toString();
-      if(endMonth.length==1) endMonth = '0'+endMonth; 
-      
-      var endDay:string = this.dueDate.day.toString();
-      if(endDay.length==1) endDay = '0'+endDay; 
-      this.task.startDate = this.startDate.year+'-'+startMonth+'-'+startDay+'T00:00:00.001Z';
-      this.task.dueDate = this.dueDate.year+'-'+endMonth+'-'+endDay+'T00:00:00.001Z';
+      this.task.startDate = this.dateStructToJSON(this.startDate);
+      this.task.dueDate = this.dateStructToJSON(this.dueDate);
       this.dialogRef.close(this.task);
     }
+  }
+
+  JSONtoDateStruct(json:string): NgbDateStruct
+  {
+     let year:string = json.substr(0, 4);
+     let month:string = json.substr(5, 2);
+     let day:string = json.substr(8, 2);
+     return {year:+year, month:+month, day:+day}
+  }
+
+  dateStructToJSON(n:NgbDateStruct):string
+  {
+    var month:string = n.month.toString();
+    if(month.length==1) month = '0'+month; 
+    
+    var day:string = n.day.toString();
+    if(day.length==1) day = '0'+day; 
+    
+    return  n.year+'-'+month+'-'+day+'T12:00:00.000Z';
   }
 }

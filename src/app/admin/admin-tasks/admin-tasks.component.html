@@ -2,13 +2,14 @@
     <a class="navbar-brand" id="primary-title" routerLink="/admin/tasks">Employee tasks</a>
     <div class="navbar-collapse">
         <div class="navbar-nav">
-            <div class="nav-item nav-link">My tasks</div>
-            <div class="nav-item nav-link">All tasks</div>
+            <!-- <div class="nav-item nav-link">My tasks</div>
+            <div class="nav-item nav-link">All tasks</div> -->
             <div class="nav-item nav-link"><button class="btn btn-success" (click)="openNewTaskDialog(task)">  <span class="fas fa-plus"></span>New Task
                   </button></div>
         </div>
     </div>
 </nav>
+<alert></alert>
 <div class="container-fluid table-responsive" id="wrapper">
     <table id="task-table" class="table-hover" style="width: 100%">
         <thead>

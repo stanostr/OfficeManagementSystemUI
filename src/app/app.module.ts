@@ -10,7 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './_services/http-interceptor.service';
-import { EmployeeHeaderComponent } from './employee/employee-header/employee-header.component';
 import { AuthGuard } from './auth.guard';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminReservationsComponent } from './admin/admin-reservations/admin-reservations.component';
@@ -22,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminNewTaskComponent } from './admin/admin-tasks/admin-new-task/admin-new-task.component';
 import { AdminDeleteTaskComponent } from './admin/admin-tasks/admin-delete-task/admin-delete-task.component';
 import { AdminEditTaskComponent } from './admin/admin-tasks/admin-edit-task/admin-edit-task.component';
+import { AlertComponent } from './alert/alert.component';
+import { AlertService } from './_services/alert.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,6 @@ import { AdminEditTaskComponent } from './admin/admin-tasks/admin-edit-task/admi
     AdminHomepageComponent,
     LoginComponent,
     LogoutComponent,
-    EmployeeHeaderComponent,
     AdminDashboardComponent,
     AdminReservationsComponent,
     AdminTasksComponent,
@@ -38,7 +38,8 @@ import { AdminEditTaskComponent } from './admin/admin-tasks/admin-edit-task/admi
     AdminUsersComponent,
     AdminNewTaskComponent,
     AdminDeleteTaskComponent,
-    AdminEditTaskComponent
+    AdminEditTaskComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,7 @@ import { AdminEditTaskComponent } from './admin/admin-tasks/admin-edit-task/admi
     NgbModule
   ],
   entryComponents: [AppComponent, AdminNewTaskComponent, AdminDeleteTaskComponent, AdminEditTaskComponent],
-  providers: [AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
+  providers: [AlertService, AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

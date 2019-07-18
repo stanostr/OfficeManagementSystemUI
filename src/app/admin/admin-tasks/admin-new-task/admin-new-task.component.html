@@ -18,22 +18,14 @@
         <div>
             <div class="line-1">
                 <label for="assigned">Assigned On:</label>
-                <div class="input-group">
                     <input type="date" required class="form-control" placeholder="yyyy-mm-dd" [(ngModel)]="startDate"
                     name="startDate"
                         ngbDatepicker #d1="ngbDatepicker">
-                </div>
             </div>
             <div class="line-1">
                 <label for="due-date">Due Date:</label>
-                <div class="input-group">
                     <input type="date" name="dueDate" required class="form-control" placeholder="yyyy-mm-dd"  [(ngModel)]="dueDate"
                         ngbDatepicker #d2="ngbDatepicker">
-                    <!-- <div class="input-group-append">
-                        <button class="btn btn-outline-secondar" (click)="d2.toggle()"  type="button"><span
-                                class="fas fa-calendar"></span></button>
-                    </div> -->
-                </div>
             </div>
         </div>
         <div class="line-2">

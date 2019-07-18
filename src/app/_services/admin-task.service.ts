@@ -23,13 +23,13 @@ export class AdminTaskService {
 
   public addTask(task:Task):Observable<HttpResponse<Task>>
   {
-    return this.httpClient.post<HttpResponse<Task>>('http://localhost:8081/admin/employees/' +
-    task.employeeId +'/tasks', task);
+    return this.httpClient.post<Task>('http://localhost:8081/admin/employees/' +
+    task.employeeId +'/tasks', task, {observe: 'response'});
   }
 
-  public updateTask(task:Task):Observable<HttpResponse<any>>
+  public updateTask(task:Task):Observable<HttpResponse<Task>>
   {
-    return this.httpClient.put<HttpResponse<any>>('http://localhost:8081/admin/tasks/' + task.id, task);
+    return this.httpClient.put<Task>('http://localhost:8081/admin/tasks/' + task.id, task, {observe: 'response'});
   }
 }
 

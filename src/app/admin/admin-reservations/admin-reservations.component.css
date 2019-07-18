@@ -2,3 +2,30 @@
 {
     border-bottom:2px solid darkslategray;
 }
+
+td, th {
+    padding-inline-end: 8px;
+    padding-inline-start: 12px;
+}
+
+.fa-check {
+    color: green
+}
+
+.fa-minus {
+    color: red
+}
+
+td {
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+td p{
+    text-align: center;
+}
+
+.fa-plus {
+    margin-right: 8px;
+}
