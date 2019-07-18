@@ -24,4 +24,9 @@ export class AdminEmployeeService {
   {
     return this.httpClient.post<Employee>('http://localhost:8081/admin/employees/', employee, {observe: 'response'});
   }
+
+  public updateEmployee(employee:Employee):Observable<HttpResponse<Employee>>
+  {
+    return this.httpClient.put<Employee>('http://localhost:8081/admin/employees/', employee, {observe: 'response'});
+  }
 }

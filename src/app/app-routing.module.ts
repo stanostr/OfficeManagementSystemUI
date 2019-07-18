@@ -4,7 +4,7 @@ import { AdminHomepageComponent } from './admin/admin-homepage.component';
 import { EmployeeHomepageComponent } from './employee/employee-homepage.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard, AdminAuthGuard } from './auth.guard';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminLeavesComponent } from './admin/admin-leaves/admin-leaves.component';
 import { AdminReservationsComponent } from './admin/admin-reservations/admin-reservations.component';
@@ -14,7 +14,7 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 
 const routes: Routes = [
   {
-    path: 'admin', component: AdminHomepageComponent, canActivate: [AuthGuard],
+    path: 'admin', component: AdminHomepageComponent, canActivate: [AuthGuard, AdminAuthGuard],
     children: [
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'}, 
       {path: 'dashboard', component: AdminDashboardComponent}, 

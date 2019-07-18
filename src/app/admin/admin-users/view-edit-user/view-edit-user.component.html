@@ -1,90 +1,85 @@
-<div class="view-user-form">
+<mat-dialog-content>
+<div class="view-user-form container-fluid">
     <form *ngIf="editMode" method="post" action="" role="edit" ngNativeValidate>
         <div md-dialog-actions style="float: right">
             <button mat-button class="btn btn-success" style="margin-right: 16px" (click)="validate()">Save</button>
             <button mat-button class="btn btn-light" (click)="closeEditMode()">Cancel</button>
         </div>
-        <h4 style="text-align: center" class="display-5">Employee Information</h4>
+        <h4 style="text-align: center" class="display-5">Update Employee</h4>
+        <h5 style="text-align: center" class="display-6">ID: {{employee.id}}</h5>
+
         <div *ngIf="error" class="alert alert-danger" role="alert">{{errorMessage}}</div>
         <div>
-            <div class="line-1">
-                <label for="first-name">First Name:</label>
-                <input required [(ngModel)]="employee.firstName" type="text" name="first-name" placeholder="First Name"
-                    class="form-control input-md" />
+                <div class="line-1">
+                    <label for="first-name">First Name:</label>
+                    <input required [(ngModel)]="employee.firstName" type="text" name="first-name" placeholder="First Name"
+                        class="form-control input-md" />
+                </div>
+                <div class="line-1">
+                    <label for="last-name">Last Name:</label>
+                    <input required [(ngModel)]="employee.lastName" type="text" name="last-name" placeholder="Last Name"
+                        class="form-control input-md" />
+                </div>
             </div>
-            <div class="line-1">
-                <label for="last-name">Last Name:</label>
-                <input required [(ngModel)]="employee.lastName" type="text" name="last-name" placeholder="Last Name"
-                    class="form-control input-md" />
+            <div>
+                <div class="line-1">
+                    <label for="contact-number">Contact Number:</label>
+                    <input required [(ngModel)]="employee.contactNumber" type="tel" name="contact-number"
+                        placeholder="Phone Number" class="form-control input-md" />
+                </div>
+                <div class="line-1">
+                    <label for="email">E-mail:</label>
+                    <input required [(ngModel)]="employee.email" type="email" name="email" placeholder="E-mail"
+                        class="form-control input-md" />
+                </div>
             </div>
-        </div>
-        <div>
-            <div class="line-1">
-                <label for="contact-number">Contact Number:</label>
-                <input required [(ngModel)]="employee.contactNumber" type="tel" name="contact-number"
-                    placeholder="Phone Number" class="form-control input-md" />
+            <div>
+                <div class="line-1">
+                    <label for="password">New Password:</label>
+                    <input required minlength="6" [(ngModel)]="employee.password" type="password" name="password"
+                        placeholder="Password" class="form-control input-md" />
+                </div>
+                <div class="line-1">
+                    <label for="confirm-password">Confirm New Password</label>
+                    <input required minlength="6" name="confirm-password" [(ngModel)]="confirmPassword" type="password"
+                        placeholder="Confirm Password" class="form-control input-md" />
+                </div>
             </div>
-            <div class="line-1">
-                <label for="email">E-mail:</label>
-                <input required [(ngModel)]="employee.email" type="email" name="email" placeholder="E-mail"
-                    class="form-control input-md" />
+            <div class="line-2">
+                <label for="select-dept">Select Department</label>
+                <select (change)="setDept($event.target.value)" id="select-dept" class="form-control">
+                    <option *ngFor="let dept of departments" [selected]="employee.dept?.departmentName == dept.departmentName">
+                        {{dept.departmentName}}</option>
+                </select>
             </div>
-        </div>
-        <div>
-            <div class="line-1">
-                <label for="password">New Password:</label>
-                <input required minlength="6" [(ngModel)]="employee.password" type="password" name="password"
-                    placeholder="Password" class="form-control input-md" />
+            <div>
+                Note: Employee will not be updated of account changes.
             </div>
-            <div class="line-1">
-                <label for="confirm-password">Confirm New Password</label>
-                <input required minlength="6" name="confirm-password" [(ngModel)]="confirmPassword" type="password"
-                    placeholder="Confirm Password" class="form-control input-md" />
-            </div>
-        </div>
-        <div class="line-2">
-            <label for="select-dept">Select Department</label>
-            <select (change)="setDept($event.target.value)" id="select-dept" class="form-control">
-                <option *ngFor="let dept of departments" [selected]="employee.dept?.departmentName == dept.departmentName">
-                    {{dept.departmentName}}</option>
-            </select>
-        </div>
-        <div>
-            Note: Employee will not be updated of account changes.
-        </div>
-
     </form>
     <div *ngIf="!editMode">
         <button class="btn btn-secondary top-button" (click)="toggleEditMode()">Edit</button>
         <h4 style="text-align: center" class="display-5">Employee Information</h4>
-        <div *ngIf="error" class="alert alert-danger" role="alert">{{errorMessage}}</div>
-        <div>
-            <div class="line-1">
-                <label for="first-name-text">First Name:</label>
-                <p id="first-name-text" class="data-field">{{employee.firstName}}</p>
-            </div>
-            <div class="line-1">
-                <label for="last-name-text">Last Name:</label>
-                <p id="last-name-text" class="data-field">{{employee.lastName}}</p>
-            </div>
+        <h5 style="text-align: center" class="display-6">ID: {{employee.id}}</h5>
+        <div class="row"> <label for="first-name-text">First Name:</label>
+            <p id="first-name-text" class="data-field">{{employee.firstName}}</p>
         </div>
-
-        <div class="line-2">
-            <label for="contact-number-text">Contact Number:</label>
+        <div class="row">  <label for="last-name-text">Last Name:</label>
+            <p id="last-name-text" class="data-field">{{employee.lastName}}</p>
+        </div>
+        <div class="row">  <label for="contact-number-text">Contact Number:</label>
             <p id="contact-number-text" class="data-field">{{employee.contactNumber}}</p>
-
         </div>
-        <div class="line-2">
-            <label for="email-text">E-mail:</label>
+        <div class="row"><label for="email-text">E-mail:</label>
             <p id="email-text" class="data-field">{{employee.email}}</p>
         </div>
-        <div class="line-2">
-            <label for="dept-text">Department Name:</label>
+        <div class="row">  <label for="dept-text">Department Name:</label>
             <p *ngIf="employee.dept" id="dept-text" class="data-field">{{employee.dept.departmentName}}</p>
-            <p *ngIf="!employee.dept" class="data-field">No department assigned</p>
+            <p *ngIf="!employee.dept" class="data-field">Not assigned</p>
         </div>
         <div md-dialog-actions>
             <button mat-button class="btn btn-secondary" (click)="dialogRef.close(null)">Close</button>
         </div>
     </div>
 </div>
+    
+</mat-dialog-content>

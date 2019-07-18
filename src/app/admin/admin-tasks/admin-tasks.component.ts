@@ -53,7 +53,7 @@ export class AdminTasksComponent implements OnInit {
     });
     dialogRef.componentInstance.task = task;
     dialogRef.afterClosed().subscribe(result => {
-      if (result!=null) {
+      if (result) {
         this.taskService.updateTask(result).subscribe(
           response => {
             if (response.ok) {

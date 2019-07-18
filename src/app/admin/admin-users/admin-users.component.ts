@@ -51,8 +51,7 @@ export class AdminUsersComponent implements OnInit {
           },
           error => {
             this.alertService.clear();
-            if(error.status==400)
-            {
+            if (error.status == 400) {
               this.alertService.error("Employee with this e-mail already exists! Employee not created.")
             }
             else this.alertService.error("An error has occurred: " + error.status + " " + error.statusText);
@@ -63,28 +62,44 @@ export class AdminUsersComponent implements OnInit {
     });
   }
 
-  openEditEmployeeDialog(employee:Employee)
-  {
+  openEditEmployeeDialog(employee: Employee) {
     let dialogRef: MatDialogRef<ViewEditUserComponent>;
     dialogRef = this.dialog.open(ViewEditUserComponent, {
       disableClose: false
     });
+    
     dialogRef.componentInstance.employee = employee;
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-
-
+        this.employeeService.updateEmployee(result).subscribe(
+          response => {
+            if (response.ok) {
+              this.alertService.clear();
+              this.alertService.success("Employee updated successfully!");
+            }
+            this.getEmployees();
+          },
+          error => {
+            this.alertService.clear();
+            this.alertService.error("An error has occurred: " + error.status + " " + error.statusText);
+          }
+        );
       }
+
       dialogRef = null;
     });
   }
 
   ngOnInit() {
+    this.getEmployees();
+  }
+
+  private getEmployees() {
     this.employeeService.getAllEmployees().subscribe(
       response => {
         this.employees = response;
       }
-    )
+    );
   }
 
 }

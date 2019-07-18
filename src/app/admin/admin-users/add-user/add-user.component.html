@@ -1,4 +1,4 @@
-<div class="add-user-form">
+<mat-dialog-content class="add-user-form">
     <form method="post" action="" role="create" ngNativeValidate>
         <h4 style="text-align: center" class="display-5">Add New Employee</h4>
         <div *ngIf="error" class="alert alert-danger" role="alert">{{errorMessage}}</div>
@@ -54,4 +54,4 @@
             <button mat-button class="btn btn-secondary" (click)="dialogRef.close(null)">Cancel</button>
         </div>
     </form>
-</div>
+</mat-dialog-content>

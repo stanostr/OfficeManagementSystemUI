@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './_services/http-interceptor.service';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard, AdminAuthGuard } from './auth.guard';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminReservationsComponent } from './admin/admin-reservations/admin-reservations.component';
 import { AdminTasksComponent} from './admin/admin-tasks/admin-tasks.component';
@@ -57,7 +57,7 @@ import { AddUserComponent } from './admin/admin-users/add-user/add-user.componen
     NgbModule
   ],
   entryComponents: [AppComponent, AdminNewTaskComponent, AdminDeleteTaskComponent, AdminEditTaskComponent, DeleteUserComponent, ViewEditUserComponent, AddUserComponent],
-  providers: [AlertService, AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
+  providers: [AlertService, AuthGuard, AdminAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
