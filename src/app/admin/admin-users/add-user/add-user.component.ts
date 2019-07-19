@@ -30,7 +30,6 @@ export class AddUserComponent implements OnInit {
     {
       if(this.department) 
       {
-        console.log(this.department.departmentName)
         this.employee.dept = this.department;
       }
       this.dialogRef.close(this.employee);

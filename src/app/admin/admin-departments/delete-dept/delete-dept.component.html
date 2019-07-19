@@ -1,0 +1,11 @@
+<mat-dialog-content>
+        <h2>Delete this department?</h2>
+        <hr />
+        <p><b>Note: </b>Employees in this department will no longer be assigned to a department if you proceed.</p>
+
+        <div md-dialog-actions>
+                <button mat-button class="btn btn-danger" style="margin-right: 16px"
+                        (click)="dialogRef.close(true)">Yes</button>
+                <button mat-button class="btn btn-secondary" (click)="dialogRef.close(false)">Cancel</button>
+        </div>
+</mat-dialog-content>

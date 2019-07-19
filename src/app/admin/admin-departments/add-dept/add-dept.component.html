@@ -1,0 +1,11 @@
+<mat-dialog-content class="add-dept-form">
+
+    <h4 style="text-align: center" class="display-5">Add new Department</h4>
+    <label for="dept-name">Name:</label>
+    <input required [(ngModel)]="departmentName" type="text" name="dept-name" id="dept-name-input" placeholder="New Department Name"
+        class="form-control input-lg" />
+    <div md-dialog-actions>
+        <button mat-button class="btn btn-primary" style="margin-right: 16px" (click)="dialogRef.close(departmentName)">Save</button>
+        <button mat-button class="btn btn-secondary" (click)="dialogRef.close(null)">Cancel</button>
+    </div>
+</mat-dialog-content>

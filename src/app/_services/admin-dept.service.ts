@@ -21,8 +21,7 @@ export class AdminDeptService {
 
   public addDepartment(dept: Dept):Observable<HttpResponse<Dept>>
   {
-    return this.httpClient.post<Dept>('http://localhost:8081/admin/departments/' +
-    dept.id, dept, {observe: 'response'});
+    return this.httpClient.post<Dept>('http://localhost:8081/admin/departments/', dept, {observe: 'response'});
   }
 
   public updateDepartment(dept: Dept):Observable<HttpResponse<Dept>>

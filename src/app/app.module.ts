@@ -28,6 +28,8 @@ import { ViewEditUserComponent } from './admin/admin-users/view-edit-user/view-e
 import { AddUserComponent } from './admin/admin-users/add-user/add-user.component';
 import { AdminRoomsComponent } from './admin/admin-rooms/admin-rooms.component';
 import { AdminDepartmentsComponent } from './admin/admin-departments/admin-departments.component';
+import { DeleteDeptComponent } from './admin/admin-departments/delete-dept/delete-dept.component';
+import { AddDeptComponent } from './admin/admin-departments/add-dept/add-dept.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { AdminDepartmentsComponent } from './admin/admin-departments/admin-depar
     ViewEditUserComponent,
     AddUserComponent,
     AdminRoomsComponent,
-    AdminDepartmentsComponent
+    AdminDepartmentsComponent,
+    DeleteDeptComponent,
+    AddDeptComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,17 @@ import { AdminDepartmentsComponent } from './admin/admin-departments/admin-depar
     BrowserAnimationsModule,
     NgbModule
   ],
-  entryComponents: [AppComponent, AdminNewTaskComponent, AdminDeleteTaskComponent, AdminEditTaskComponent, DeleteUserComponent, ViewEditUserComponent, AddUserComponent],
+  entryComponents: [
+    AppComponent,
+    AdminNewTaskComponent,
+    AdminDeleteTaskComponent, 
+    AdminEditTaskComponent, 
+    DeleteUserComponent, 
+    ViewEditUserComponent,
+    AddUserComponent,
+    DeleteDeptComponent,
+    AddDeptComponent
+  ],
   providers: [AlertService, AuthGuard, AdminAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent]
 })
