@@ -26,6 +26,8 @@ import { AlertService } from './_services/alert.service';
 import { DeleteUserComponent } from './admin/admin-users/delete-user/delete-user.component';
 import { ViewEditUserComponent } from './admin/admin-users/view-edit-user/view-edit-user.component';
 import { AddUserComponent } from './admin/admin-users/add-user/add-user.component';
+import { AdminRoomsComponent } from './admin/admin-rooms/admin-rooms.component';
+import { AdminDepartmentsComponent } from './admin/admin-departments/admin-departments.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { AddUserComponent } from './admin/admin-users/add-user/add-user.componen
     AlertComponent,
     DeleteUserComponent,
     ViewEditUserComponent,
-    AddUserComponent
+    AddUserComponent,
+    AdminRoomsComponent,
+    AdminDepartmentsComponent
   ],
   imports: [
     BrowserModule,

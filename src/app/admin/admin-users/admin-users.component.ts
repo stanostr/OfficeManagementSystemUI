@@ -62,12 +62,12 @@ export class AdminUsersComponent implements OnInit {
     });
   }
 
-  openEditEmployeeDialog(employee: Employee) {
+  openEditEmployeeDialog(employee: Employee, editMode:boolean) {
     let dialogRef: MatDialogRef<ViewEditUserComponent>;
     dialogRef = this.dialog.open(ViewEditUserComponent, {
       disableClose: false
     });
-    
+    dialogRef.componentInstance.editMode = editMode;
     dialogRef.componentInstance.employee = employee;
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

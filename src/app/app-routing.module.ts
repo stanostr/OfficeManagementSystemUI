@@ -10,18 +10,24 @@ import { AdminLeavesComponent } from './admin/admin-leaves/admin-leaves.componen
 import { AdminReservationsComponent } from './admin/admin-reservations/admin-reservations.component';
 import { AdminTasksComponent } from './admin/admin-tasks/admin-tasks.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { AdminDepartmentsComponent } from './admin/admin-departments/admin-departments.component';
+import { AdminRoomsComponent } from './admin/admin-rooms/admin-rooms.component';
 
 
 const routes: Routes = [
   {
     path: 'admin', component: AdminHomepageComponent, canActivate: [AuthGuard, AdminAuthGuard],
     children: [
-      {path: '', redirectTo: 'dashboard', pathMatch: 'full'}, 
+      {path: '', redirectTo: 'employees', pathMatch: 'full'}, 
       {path: 'dashboard', component: AdminDashboardComponent}, 
       {path: 'leave_requests', component: AdminLeavesComponent}, 
       {path: 'reservations', component: AdminReservationsComponent}, 
       {path: 'tasks', component: AdminTasksComponent},
       {path: 'employees', component: AdminUsersComponent},
+      {path: 'departments', component: AdminDepartmentsComponent},
+      {path: 'rooms', component: AdminRoomsComponent},
+      {path: 'reservations', component: AdminReservationsComponent},
+
 
     ]
   },

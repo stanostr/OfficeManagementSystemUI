@@ -26,9 +26,9 @@ export class AdminAuthGuard implements CanActivate {
         if(sessionStorage.getItem('role')=='ROLE_ADMIN') {
             return true;
         }
-
-        // not logged in so redirect to login page with the return url
-        this.router.navigate(['login'], { queryParams: { returnUrl: state.url }});
+        if(sessionStorage.getItem('role')=='ROLE_USER')
+            this.router.navigate(['employee'], { queryParams: { returnUrl: state.url }});
+        else this.router.navigate(['login'], { queryParams: { returnUrl: state.url }});
         return false;
     }
 }

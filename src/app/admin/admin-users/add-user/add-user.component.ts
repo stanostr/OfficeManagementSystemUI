@@ -48,7 +48,7 @@ export class AddUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.deptService.getAllEmployees().subscribe(
+    this.deptService.getAllDepartments().subscribe(
       result=> this.departments = result
     );
   }

@@ -22,10 +22,10 @@ export class ViewEditUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.deptService.getAllEmployees().subscribe(
+    this.deptService.getAllDepartments().subscribe(
       result => this.departments = result
     );
-    this.editMode = false;
+    this.editMode = this.dialogRef.componentInstance.editMode;
     this.employee = Object.assign({}, this.dialogRef.componentInstance.employee);
   }
 

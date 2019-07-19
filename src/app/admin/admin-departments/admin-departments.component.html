@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light subcomponent-navbar">
+        <a class="navbar-brand" id="primary-title" routerLink="/admin/departments">Departments</a>
+        <div class="navbar-collapse">
+            <div class="navbar-nav">
+                <div class="nav-item nav-link"><button class="btn btn-success" (click)="openNewDepartmentDialog()">  <span class="fas fa-plus" style="margin-right: 8px"></span>New Department
+                </button></div>
+            </div>
+        </div>
+    </nav>
+<alert></alert>
+<div class="container-fluid table-responsive" id="wrapper">
+    <table id="employee-table" class="table-hover" style="width: 100%">
+        <thead>
+            <tr class="d-flex">
+                <th style="width: 15%">Dept. ID</th>
+                <th style="width: 30%">Department Name</th>
+                <th style="width: 15%"></th>
+                <th style="width: 15%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dept of departments" class="d-flex">
+                <td style="width: 15%" class="border-right name-column">{{dept.id}}</td>
+                <td *ngIf="!editMode || selected!=dept" style="width: 30%" class="border-right name-column">{{dept.departmentName}}</td>
+                <td *ngIf="editMode && selected==dept" style="width: 30%" class="border-right name-column">  <input (keyup.enter)="toggleEditMode(dept)" [(ngModel)]="dept.departmentName" type="text" name="dept-name" placeholder="Dept. Name"
+                    class="form-control input-md" /></td>
+                <td style="width: 15%" ><a (click)="toggleEditMode(dept)" class="btn btn-secondary btn-small">
+                        <span class="fas fa-edit"></span>
+                    </a></td>
+                <td style="width: 15%"><a (click)="openDeleteDepartmentDialog(dept)" class="btn btn-danger btn-small">
+                        <span class="fas fa-times"></span>
+                    </a></td>
+            </tr>
+            <p *ngIf="departments==null" class="alert alert-danger">No departments found!</p>
+        </tbody>
+    </table>
+</div>

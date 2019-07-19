@@ -22,16 +22,16 @@
         </thead>
         <tbody>
             <tr *ngFor="let employee of employees" class="d-flex">
-                <td style="width: 11%" class="border-right name-column">{{employee.id}}</td>
-                <td style="width: 22%" class="border-right name-column">{{employee.lastName}}</td>
-                <td style="width: 22%" class="border-right name-column">{{employee.firstName}}</td>
-                <td style="width: 12%"><a (click)="openEditEmployeeDialog(employee)" class="btn btn-primary btn-small">
-                        <span class="fas fa-eye"></span>
+                <td style="width: 11%" (click)="openEditEmployeeDialog(employee, false)" class="border-right name-column">{{employee.id}}</td>
+                <td style="width: 22%" (click)="openEditEmployeeDialog(employee, false)" class="border-right name-column">{{employee.lastName}}</td>
+                <td style="width: 22%" (click)="openEditEmployeeDialog(employee, false)" class="border-right name-column">{{employee.firstName}}</td>
+                <td style="width: 12%" ><a (click)="openEditEmployeeDialog(employee, true)" class="btn btn-success btn-small">
+                        <span class="fas fa-edit"></span>
                     </a></td>
                 <td style="width: 12%"><a (click)="openDeleteEmployeeDialog(employee)" class="btn btn-danger btn-small">
                         <span class="fas fa-times"></span>
                     </a></td>
-                <td style="width: 21%" class="border-right name-column">{{employee.dept?.departmentName}}</td>
+                <td style="width: 21%" class="border-right name-column" (click)="openEditEmployeeDialog(employee, false)">{{employee.dept?.departmentName}}</td>
             </tr>
             <p *ngIf="employees==null" class="alert alert-danger">No employees found!</p>
         </tbody>
