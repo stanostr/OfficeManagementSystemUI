@@ -2,8 +2,6 @@
     <a class="navbar-brand" id="primary-title" routerLink="/admin/tasks">Employee tasks</a>
     <div class="navbar-collapse">
         <div class="navbar-nav">
-            <!-- <div class="nav-item nav-link">My tasks</div>
-            <div class="nav-item nav-link">All tasks</div> -->
             <div class="nav-item nav-link"><button class="btn btn-success" (click)="openNewTaskDialog(task)">  <span class="fas fa-plus"></span>New Task
                   </button></div>
         </div>
@@ -24,8 +22,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let task of tasks" class="d-flex">
-                <td style="width: 30%" class="border-right name-column">{{task.taskName}}</td>
-                <td style="width: 20%" class="border-right name-column">{{task.employeeName}}</td>
+                <td style="width: 30%" class="border-right">{{task.taskName}}</td>
+                <td style="width: 20%" class="border-right">{{task.employeeName}}</td>
                 <td style="width: 15%" class="border-right">
                     <p *ngIf="task.completed" style="text-align: center">
                         <span class="fas fa-check"></span>

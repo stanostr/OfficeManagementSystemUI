@@ -32,6 +32,9 @@ import { DeleteDeptComponent } from './admin/admin-departments/delete-dept/delet
 import { AddDeptComponent } from './admin/admin-departments/add-dept/add-dept.component';
 import { AdminEditLeaveComponent } from './admin/admin-leaves/admin-edit-leave/admin-edit-leave.component';
 import { AdminDeleteLeaveComponent } from './admin/admin-leaves/admin-delete-leave/admin-delete-leave.component';
+import { AdminDeleteRoomComponent } from './admin/admin-rooms/admin-delete-room/admin-delete-room.component';
+import { AdminAddTrainingRoomComponent } from './admin/admin-rooms/admin-add-training-room/admin-add-training-room.component';
+import { AdminAddMeetingRoomComponent } from './admin/admin-rooms/admin-add-meeting-room/admin-add-meeting-room.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { AdminDeleteLeaveComponent } from './admin/admin-leaves/admin-delete-lea
     DeleteDeptComponent,
     AddDeptComponent,
     AdminEditLeaveComponent,
-    AdminDeleteLeaveComponent
+    AdminDeleteLeaveComponent,
+    AdminDeleteRoomComponent,
+    AdminAddTrainingRoomComponent,
+    AdminAddMeetingRoomComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +85,10 @@ import { AdminDeleteLeaveComponent } from './admin/admin-leaves/admin-delete-lea
     DeleteDeptComponent,
     AddDeptComponent,
     AdminEditLeaveComponent,
-    AdminDeleteLeaveComponent
+    AdminDeleteLeaveComponent,
+    AdminAddMeetingRoomComponent,
+    AdminAddTrainingRoomComponent,
+    AdminDeleteRoomComponent
   ],
   providers: [AlertService, AuthGuard, AdminAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent]
