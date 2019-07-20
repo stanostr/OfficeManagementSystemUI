@@ -2,3 +2,11 @@
 {
     border-bottom:2px solid darkslategray;
 }
+
+td {
+    margin-right: 6px;
+    margin-left: 6px;
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

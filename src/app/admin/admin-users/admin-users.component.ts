@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/_model/employee';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { AdminEmployeeService } from 'src/app/_services/admin-employee.service';
+import { AdminEmployeeService } from 'src/app/_services/admin-services/admin-employee.service';
 import { AlertService } from 'src/app/_services/alert.service';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { AddUserComponent } from './add-user/add-user.component';

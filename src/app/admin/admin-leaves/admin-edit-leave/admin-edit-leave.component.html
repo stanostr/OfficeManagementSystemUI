@@ -1,0 +1,26 @@
+<mat-dialog-content>
+        <h4>Employee Leave Request</h4>
+        <hr>
+        <div class="row"> <label for="employee-name-text">Employee Name:</label>
+            <p id="employee-name-text" class="data-field">{{request.employee?.firstName}} {{request.employee?.lastName}}</p>
+        </div>
+        <div class="row">  <label for="type-text">Leave Type:</label>
+            <p id="type-text" class="data-field">{{request.type}}</p>
+        </div>
+        <div class="row">  <label for="start-date-text">From:</label>
+            <p id="start-date-text" class="data-field">{{request.startDate | date}}</p>
+        </div>
+        <div class="row"><label for="email-text">To:</label>
+            <p id="email-text" class="data-field">{{request.endDate | date}}</p>
+        </div>
+        <div *ngIf="request.reason" class="row">  <label for="reason-text">Reason:</label>
+            <p  id="reason-text" class="data-field">{{request.reason}}</p>
+        </div>
+        <div md-dialog-actions>
+            <button mat-button *ngIf="request.status=='PENDING'"  class="btn btn-success" style="margin-right: 16px"
+                (click)="dialogRef.close('APPROVED')">Approve</button>
+            <button mat-button *ngIf="request.status=='PENDING'" class="btn btn-danger" style="margin-right: 16px"
+                (click)="dialogRef.close('REJECTED')">Reject</button>
+            <button mat-button class="btn btn-secondary" (click)="dialogRef.close(null)">Close</button>
+        </div>
+    </mat-dialog-content>

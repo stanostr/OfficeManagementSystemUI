@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/_model/task';
-import { AdminTaskService } from 'src/app/_services/admin-task.service';
+import { AdminTaskService } from 'src/app/_services/admin-services/admin-task.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { AdminNewTaskComponent } from './admin-new-task/admin-new-task.component';
 import { AdminDeleteTaskComponent } from './admin-delete-task/admin-delete-task.component';

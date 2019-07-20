@@ -30,6 +30,8 @@ import { AdminRoomsComponent } from './admin/admin-rooms/admin-rooms.component';
 import { AdminDepartmentsComponent } from './admin/admin-departments/admin-departments.component';
 import { DeleteDeptComponent } from './admin/admin-departments/delete-dept/delete-dept.component';
 import { AddDeptComponent } from './admin/admin-departments/add-dept/add-dept.component';
+import { AdminEditLeaveComponent } from './admin/admin-leaves/admin-edit-leave/admin-edit-leave.component';
+import { AdminDeleteLeaveComponent } from './admin/admin-leaves/admin-delete-leave/admin-delete-leave.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { AddDeptComponent } from './admin/admin-departments/add-dept/add-dept.co
     AdminRoomsComponent,
     AdminDepartmentsComponent,
     DeleteDeptComponent,
-    AddDeptComponent
+    AddDeptComponent,
+    AdminEditLeaveComponent,
+    AdminDeleteLeaveComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +77,9 @@ import { AddDeptComponent } from './admin/admin-departments/add-dept/add-dept.co
     ViewEditUserComponent,
     AddUserComponent,
     DeleteDeptComponent,
-    AddDeptComponent
+    AddDeptComponent,
+    AdminEditLeaveComponent,
+    AdminDeleteLeaveComponent
   ],
   providers: [AlertService, AuthGuard, AdminAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent]
