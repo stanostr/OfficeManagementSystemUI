@@ -10,3 +10,7 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.nav-link {
+    cursor: pointer; 
+}

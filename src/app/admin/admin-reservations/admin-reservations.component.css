@@ -29,3 +29,7 @@ td p{
 .fa-plus {
     margin-right: 8px;
 }
+
+.nav-link {
+    cursor: pointer;
+}
