@@ -3,33 +3,17 @@
     border-bottom:2px solid darkslategray;
 }
 
+.nav-link {
+    cursor: pointer; 
+}
+
 td, th {
-    padding-inline-end: 8px;
-    padding-inline-start: 12px;
-}
-
-.fa-check {
-    color: green
-}
-
-.fa-minus {
-    color: red
-}
-
-td {
+    margin-right: 6px;
+    margin-left: 6px;
     max-height: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-td p{
-    text-align: center;
-}
-
-.fa-plus {
-    margin-right: 8px;
-}
-
 .nav-link {
     cursor: pointer;
 }

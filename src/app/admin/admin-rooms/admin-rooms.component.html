@@ -5,13 +5,13 @@
         <div class="navbar-nav">
             <div *ngIf="displayTraining" class="nav-item nav-link" (click)="toggleRoomType()">View Meeting Rooms</div>
             <div *ngIf="displayTraining" class="nav-item nav-link"><button class="btn btn-success"
-                    (click)="openNewDepartmentDialog()">
+                    (click)="openNewTrainingDialog()">
                     <span class="fas fa-plus" style="margin-right: 8px"></span>New Training Room
                 </button></div>
 
             <div *ngIf="!displayTraining" class="nav-item nav-link" (click)="toggleRoomType()">View Training Rooms</div>
             <div *ngIf="!displayTraining" class="nav-item nav-link"><button class="btn btn-success"
-                    (click)="openNewDepartmentDialog()">
+                    (click)="openNewMeetingDialog()">
                     <span class="fas fa-plus" style="margin-right: 8px"></span>New Meeting Room
                 </button></div>
         </div>

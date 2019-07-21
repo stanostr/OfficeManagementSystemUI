@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MeetingRoom } from 'src/app/_model/room';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-admin-add-meeting-room',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-add-meeting-room.component.css']
 })
 export class AdminAddMeetingRoomComponent implements OnInit {
-
-  constructor() { }
+  room: MeetingRoom;
+  constructor(public dialogRef: MatDialogRef<AdminAddMeetingRoomComponent>) { }
 
   ngOnInit() {
+    this.room = new MeetingRoom();
   }
 
 }
