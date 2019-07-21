@@ -11,6 +11,6 @@ td {
     text-overflow: ellipsis;
 }
 
-.nav-link {
+.nav-link, td {
     cursor: pointer; 
 }

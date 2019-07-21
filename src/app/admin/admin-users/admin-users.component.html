@@ -22,9 +22,9 @@
         </thead>
         <tbody>
             <tr *ngFor="let employee of employees" class="d-flex">
-                <td style="width: 11%" (click)="openEditEmployeeDialog(employee, false)" class="border-right name-column">{{employee.id}}</td>
-                <td style="width: 22%" (click)="openEditEmployeeDialog(employee, false)" class="border-right name-column">{{employee.lastName}}</td>
-                <td style="width: 22%" (click)="openEditEmployeeDialog(employee, false)" class="border-right name-column">{{employee.firstName}}</td>
+                <td style="width: 11%" (click)="openEditEmployeeDialog(employee, false)" class="border-right">{{employee.id}}</td>
+                <td style="width: 22%" (click)="openEditEmployeeDialog(employee, false)" class="border-right">{{employee.lastName}}</td>
+                <td style="width: 22%" (click)="openEditEmployeeDialog(employee, false)" class="border-right">{{employee.firstName}}</td>
                 <td style="width: 12%" ><a (click)="openEditEmployeeDialog(employee, true)" class="btn btn-success btn-small">
                         <span class="fas fa-edit"></span>
                     </a></td>

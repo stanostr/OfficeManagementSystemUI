@@ -1,0 +1,32 @@
+<mat-dialog-content>
+    <h4 class="display-5">Room Reservation Request</h4>
+    <hr>
+    <div class="row"> <label for="employee-name-text">Employee Name:</label>
+        <p id="employee-name-text" class="data-field">{{reservation.employee?.firstName}}
+            {{reservation.employee?.lastName}}</p>
+    </div>
+    <div class="row"> <label for="type-text">Room:</label>
+        <p id="type-text" class="data-field">{{reservation.room?.name}}</p>
+    </div>
+    <div class="row"> <label for="type-text">Date:</label>
+        <p id="type-text" class="data-field">{{reservation.startTime | date}}</p>
+    </div>
+    <div class="row"> <label for="start-time-text">From:</label>
+        <p id="start-time-text" class="data-field">{{reservation.startTime | date:'shortTime'}}</p>
+    </div>
+    <div class="row"><label for="end-time-text">To:</label>
+        <p id="end-time-text" class="data-field">{{reservation.endTime | date:'shortTime'}}</p>
+    </div>
+    <div class="row"> <label for="status-text">Status:</label>
+        <p id="status-text" [style.color]="color(reservation)" class="data-field">{{reservation.status }}</p>
+    </div>
+    <div md-dialog-actions>
+        <button mat-button *ngIf="reservation.status=='PENDING'" class="btn btn-success" style="margin-right: 16px"
+            (click)="dialogRef.close('APPROVED')">Approve</button>
+        <button mat-button *ngIf="reservation.status=='PENDING'" class="btn btn-danger" style="margin-right: 16px"
+            (click)="dialogRef.close('REJECTED')">Reject</button>
+        <button mat-button *ngIf="deleteable()" class="btn btn-danger" style="margin-right: 16px"
+            (click)="confirmDelete()">Delete</button>
+        <button mat-button class="btn btn-secondary" (click)="dialogRef.close(null)">Close</button>
+    </div>
+</mat-dialog-content>

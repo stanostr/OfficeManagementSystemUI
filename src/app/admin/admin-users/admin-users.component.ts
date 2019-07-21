@@ -71,16 +71,15 @@ export class AdminUsersComponent implements OnInit {
     dialogRef.componentInstance.employee = employee;
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        this.alertService.clear();
         this.employeeService.updateEmployee(result).subscribe(
           response => {
             if (response.ok) {
-              this.alertService.clear();
               this.alertService.success("Employee updated successfully!");
             }
             this.getEmployees();
           },
           error => {
-            this.alertService.clear();
             this.alertService.error("An error has occurred: " + error.status + " " + error.statusText);
           }
         );

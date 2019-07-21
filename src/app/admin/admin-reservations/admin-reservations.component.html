@@ -2,10 +2,11 @@
     <a class="navbar-brand" id="primary-title" routerLink="/admin/reservations">Room reservations</a>
     <div class="navbar-collapse">
         <div class="navbar-nav">
-            <div class="nav-item nav-link">All</div>
-            <div class="nav-item nav-link">Approved</div>
-            <div class="nav-item nav-link">Rejected</div>
-            <div class="nav-item nav-link"><button class="btn btn-success">Approve All</button></div>
+            <div class="nav-item nav-link" (click)="getReservations(null)">All</div>
+            <div class="nav-item nav-link" (click)="getReservations('PENDING')">Pending</div>
+            <div class="nav-item nav-link" (click)="getReservations('APPROVED')">Approved</div>
+            <div class="nav-item nav-link" (click)="getReservations('REJECTED')">Rejected</div>
+            <div class="nav-item nav-link" *ngIf="filterStatus=='ALL' || filterStatus=='PENDING'" (click)="approveAll()"><button class="btn btn-success">Approve Pending</button></div>
         </div>
     </div>
 </nav>
@@ -24,14 +25,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let reservation of reservations" class="d-flex">
+            <tr *ngFor="let reservation of reservations" (click)="viewReservation(reservation)" class="d-flex">
                 <td style="width: 15%" class="border-right">{{reservation.room?.name}}</td>
                 <td style="width: 15%" class="border-right">{{reservation.startTime | date}}</td>
                 <td style="width: 15%" class="border-right">{{reservation.startTime | date: 'shortTime'}}</td>
                 <td style="width: 15%" class="border-right">{{reservation.endTime | date: 'shortTime'}}</td>
                 <td style="width: 20%">{{reservation.employee?.firstName}} {{reservation.employee?.lastName}}</td>
-                <td style="width: 10%" class="border-right"></td>
-                <td style="width: 10%" class="border-right"></td>
+                <td style="width: 20%" [style.color]="color(reservation)">{{reservation.status}}</td>
             </tr>
         </tbody>
         <p *ngIf="reservations==null" class="alert alert-danger">No reservations found!</p>

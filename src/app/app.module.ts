@@ -35,6 +35,7 @@ import { AdminDeleteLeaveComponent } from './admin/admin-leaves/admin-delete-lea
 import { AdminDeleteRoomComponent } from './admin/admin-rooms/admin-delete-room/admin-delete-room.component';
 import { AdminAddTrainingRoomComponent } from './admin/admin-rooms/admin-add-training-room/admin-add-training-room.component';
 import { AdminAddMeetingRoomComponent } from './admin/admin-rooms/admin-add-meeting-room/admin-add-meeting-room.component';
+import { AdminReservationViewComponent } from './admin/admin-reservations/admin-reservation-view/admin-reservation-view.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AdminAddMeetingRoomComponent } from './admin/admin-rooms/admin-add-meet
     AdminDeleteLeaveComponent,
     AdminDeleteRoomComponent,
     AdminAddTrainingRoomComponent,
-    AdminAddMeetingRoomComponent
+    AdminAddMeetingRoomComponent,
+    AdminReservationViewComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +90,8 @@ import { AdminAddMeetingRoomComponent } from './admin/admin-rooms/admin-add-meet
     AdminDeleteLeaveComponent,
     AdminAddMeetingRoomComponent,
     AdminAddTrainingRoomComponent,
-    AdminDeleteRoomComponent
+    AdminDeleteRoomComponent,
+    AdminReservationViewComponent
   ],
   providers: [AlertService, AuthGuard, AdminAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent]
