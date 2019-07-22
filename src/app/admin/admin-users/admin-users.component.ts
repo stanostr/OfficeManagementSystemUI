@@ -74,7 +74,8 @@ export class AdminUsersComponent implements OnInit {
         this.alertService.clear();
         this.employeeService.updateEmployee(result).subscribe(
           response => {
-            if (response.ok) {
+            if (response.ok) 
+            {
               this.alertService.success("Employee updated successfully!");
             }
             this.getEmployees();
