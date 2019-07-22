@@ -1,0 +1,24 @@
+<mat-dialog-content>
+        <h4 class="display-5">Your Task</h4>
+        <hr>
+        <div class="row"> <label for="task-name">Task Name:</label>
+            <p id="task-name" class="data-field">{{task.taskName}}</p>
+        </div>
+        <div class="row"> <label for="assigned">Assigned:</label>
+            <p id="assigned" class="data-field">{{task.startDate | date}}</p>
+        </div>
+        <div class="row"> <label for="due-date">Due Date:</label>
+            <p id="due-date" class="data-field">{{task.dueDate | date}}</p>
+        </div>
+        <div class="row"> <label for="task-description">Description:</label>
+            <p id="task-description" class="data-field">{{task.description}}</p>
+        </div>
+        <div class="row"><label for="completed-yes-no">Completed?</label>
+            <p id="completed-yes-no" class="data-field"><span style="color: green" *ngIf="task.completed">YES!</span><span style="color: red" *ngIf="!task.completed">Not yet</span></p>
+        </div>
+        <div md-dialog-actions>
+            <button *ngIf="!task.completed" mat-button class="btn btn-success" style="margin-right: 16px"
+                (click)="complete()">Mark completed</button>
+            <button mat-button class="btn btn-secondary" (click)="dialogRef.close(false)">Close</button>
+        </div>
+    </mat-dialog-content>

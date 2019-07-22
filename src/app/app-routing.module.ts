@@ -12,26 +12,37 @@ import { AdminTasksComponent } from './admin/admin-tasks/admin-tasks.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { AdminDepartmentsComponent } from './admin/admin-departments/admin-departments.component';
 import { AdminRoomsComponent } from './admin/admin-rooms/admin-rooms.component';
+import { EmployeeLeaveComponent } from './employee/employee-leave/employee-leave.component';
+import { EmployeeOverviewComponent } from './employee/employee-overview/employee-overview.component';
+import { EmployeeRoomsComponent } from './employee/employee-rooms/employee-rooms.component';
+import { EmployeeTasksComponent } from './employee/employee-tasks/employee-tasks.component';
 
 
 const routes: Routes = [
   {
     path: 'admin', component: AdminHomepageComponent, canActivate: [AuthGuard, AdminAuthGuard],
     children: [
-      {path: '', redirectTo: 'employees', pathMatch: 'full'}, 
-      {path: 'dashboard', component: AdminDashboardComponent}, 
-      {path: 'leave_requests', component: AdminLeavesComponent}, 
-      {path: 'reservations', component: AdminReservationsComponent}, 
-      {path: 'tasks', component: AdminTasksComponent},
-      {path: 'employees', component: AdminUsersComponent},
-      {path: 'departments', component: AdminDepartmentsComponent},
-      {path: 'rooms', component: AdminRoomsComponent},
-      {path: 'reservations', component: AdminReservationsComponent},
-
-
+      { path: '', redirectTo: 'employees', pathMatch: 'full' },
+      { path: 'dashboard', component: AdminDashboardComponent },
+      { path: 'leave_requests', component: AdminLeavesComponent },
+      { path: 'reservations', component: AdminReservationsComponent },
+      { path: 'tasks', component: AdminTasksComponent },
+      { path: 'employees', component: AdminUsersComponent },
+      { path: 'departments', component: AdminDepartmentsComponent },
+      { path: 'rooms', component: AdminRoomsComponent },
+      { path: 'reservations', component: AdminReservationsComponent },
     ]
   },
-  { path: 'employee', component: EmployeeHomepageComponent, canActivate: [AuthGuard] },
+  {
+    path: 'employee', component: EmployeeHomepageComponent, canActivate: [AuthGuard],
+    children: [
+      { path: '', redirectTo: '', pathMatch: 'full' },
+      { path: 'dashboard', component: EmployeeOverviewComponent },
+      { path: 'leave_requests', component: EmployeeLeaveComponent },
+      { path: 'reservations', component: EmployeeRoomsComponent },
+      { path: 'tasks', component: EmployeeTasksComponent }
+    ]
+  },
   { path: 'login', component: LoginComponent },
   { path: '', component: LoginComponent },
   {

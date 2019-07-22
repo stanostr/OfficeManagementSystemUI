@@ -36,6 +36,11 @@ import { AdminDeleteRoomComponent } from './admin/admin-rooms/admin-delete-room/
 import { AdminAddTrainingRoomComponent } from './admin/admin-rooms/admin-add-training-room/admin-add-training-room.component';
 import { AdminAddMeetingRoomComponent } from './admin/admin-rooms/admin-add-meeting-room/admin-add-meeting-room.component';
 import { AdminReservationViewComponent } from './admin/admin-reservations/admin-reservation-view/admin-reservation-view.component';
+import { EmployeeTasksComponent } from './employee/employee-tasks/employee-tasks.component';
+import { EmployeeLeaveComponent } from './employee/employee-leave/employee-leave.component';
+import { EmployeeRoomsComponent } from './employee/employee-rooms/employee-rooms.component';
+import { EmployeeOverviewComponent } from './employee/employee-overview/employee-overview.component';
+import { EmployeeTaskViewComponent } from './employee/employee-tasks/employee-task-view/employee-task-view.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +70,12 @@ import { AdminReservationViewComponent } from './admin/admin-reservations/admin-
     AdminDeleteRoomComponent,
     AdminAddTrainingRoomComponent,
     AdminAddMeetingRoomComponent,
-    AdminReservationViewComponent
+    AdminReservationViewComponent,
+    EmployeeTasksComponent,
+    EmployeeLeaveComponent,
+    EmployeeRoomsComponent,
+    EmployeeOverviewComponent,
+    EmployeeTaskViewComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +101,8 @@ import { AdminReservationViewComponent } from './admin/admin-reservations/admin-
     AdminAddMeetingRoomComponent,
     AdminAddTrainingRoomComponent,
     AdminDeleteRoomComponent,
-    AdminReservationViewComponent
+    AdminReservationViewComponent,
+    EmployeeTaskViewComponent
   ],
   providers: [AlertService, AuthGuard, AdminAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
   bootstrap: [AppComponent]
