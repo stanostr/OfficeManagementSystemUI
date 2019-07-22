@@ -70,7 +70,7 @@ export class EmployeeTasksComponent implements OnInit {
         this.getTasks();
       },
       error => {
-        this.alertService.error("An error has occurred: " + error.status)
+        this.alertService.error("An error has occurred: " + error.status + ". Please contact administrator.")
       }
     )
   }

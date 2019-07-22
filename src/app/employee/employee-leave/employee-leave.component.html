@@ -1,1 +1,79 @@
-<p>employee-leave works!</p>
+<nav class="navbar navbar-expand-md navbar-light bg-light subcomponent-navbar">
+    <a class="navbar-brand" id="primary-title" routerLink="/employee/leave_requests">Leave requests</a>
+    <div class="navbar-collapse">
+        <div class="navbar-nav">
+            <div class="nav-item nav-link" (click)="showList = false">New Request</div>
+            <div class="nav-item nav-link" (click)="showList = true">My Requests</div>
+        </div>
+    </div>
+</nav>
+<alert></alert>
+<div class="container-fluid table-responsive" id="wrapper">
+    <table *ngIf="showList" id="employee-table" class="table-hover" style="width: 100%">
+        <thead>
+            <tr class="d-flex">
+                <th style="width: 20%">Type</th>
+                <th style="width: 20%">From</th>
+                <th style="width: 20%">To</th>
+                <th style="width: 20%">Status</th>
+                <th style="width: 20%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let request of requests" class="d-flex">
+                <td style="width: 20%" (click)="openViewRequestDialog(request)" class="border-right name-column">
+                    {{request.type | slice:0:-6}}</td>
+                <td style="width: 20%" (click)="openViewRequestDialog(request)" class="border-right name-column">
+                    {{request.startDate | date }}</td>
+                <td style="width: 20%" (click)="openViewRequestDialog(request)" class="border-right name-column">
+                    {{request.endDate | date}}</td>
+                <td style="width: 20%" [style.color]="color(request)" (click)="openViewRequestDialog(request)"
+                    class="border-right name-column">
+                    {{request.status}}</td>
+                <td style="width: 20%"><a (click)="deleteLeaveRequest(request)" class="btn btn-danger btn-small">
+                        <span class="fas fa-trash"></span>
+                    </a></td>
+            </tr>
+            <p *ngIf="requests==null" class="alert alert-danger">No leave requests found!</p>
+        </tbody>
+    </table>
+    <form *ngIf="!showList" action="" role="create" ngNativeValidate
+        class="add-request-form">
+        <h4 style="text-align: center" class="display-5">New Leave Request</h4>
+        <div class="line-2">
+            <label for="request-type">Leave Type:</label>
+            <select (change)="setType($event.target.value)" name="request-type" id="select-dept" class="form-control">
+                <option>SICK</option>
+                <option>VACATION</option>
+                <option>HOLIDAY</option>
+                <option>EARNED</option>
+            </select>
+        </div>
+
+        <div style="clear: both">
+            <div class="line-1">
+                <label for="from">From:</label>
+                <input type="date" required class="form-control" placeholder="yyyy-mm-dd"
+                    [(ngModel)]="startDate" name="from" ngbDatepicker #d1="ngbDatepicker">
+            </div>
+            <div class="line-1">
+                <label for="endDate">To:</label>
+                <input type="date" name="endDate" required class="form-control" placeholder="yyyy-mm-dd"
+                    [(ngModel)]="endDate" ngbDatepicker #d2="ngbDatepicker">
+            </div>
+        </div>
+        <div id="description-tab">
+            <label for="description">Reason:</label>
+            <textarea name="description" class="form-control input-md" [(ngModel)]="newRequest.reason" rows="4"
+                placeholder="Leave a detailed reason for your leave request"></textarea>
+        </div>
+        <div style="clear: both">
+            Created leave request will be pending until approved or rejected by admin.
+        </div>
+        <div>
+            <button class="btn btn-primary" style="margin-right: 16px" (click)="validate()">Create
+                Leave Request</button>
+            <button type="reset" class="btn btn-secondary" (click)="resetForm()">Clear</button>
+        </div>
+    </form>
+</div>

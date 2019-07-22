@@ -1,0 +1,63 @@
+.subcomponent-navbar
+{
+    border-bottom:2px solid darkslategray;
+}
+
+td, th {
+    padding-inline-end: 8px;
+    padding-inline-start: 12px;
+}
+
+td {
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+td p{
+    text-align: center;
+}
+
+.display-5 {
+    margin-top: 8px;
+}
+
+td, .nav-link {
+    cursor: pointer;
+}
+
+option {
+    font-weight: bold;
+}
+
+.add-request-form {
+    font: 16px/2em Lato, serif;
+}
+
+.line-1 {
+    float: left;
+    width: 45%;
+    margin-right: 8px;
+}
+
+.line-2 {
+    float:left;
+    width: 45%;
+    margin: 8px;
+}
+
+#description-tab {
+    width:90%;
+    clear: both;
+}
+
+	form[role=create] input,
+    form[role=create] button,
+    form[role=create] textarea {
+		font-size: 18px;
+        margin: 12px 8px; 
+	}
+	form[role=create] > div {
+		text-align: center;
+    }
+    

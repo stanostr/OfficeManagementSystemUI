@@ -82,4 +82,11 @@ export class AdminLeavesComponent implements OnInit {
       }
     );
   }
+
+  color(request: LeaveRequest) {
+    if (request.status == 'PENDING') return 'orange';
+    if (request.status == 'REJECTED') return 'red';
+    if (request.status == 'APPROVED') return 'green';
+    return 'black';
+  }
 }

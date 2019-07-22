@@ -35,7 +35,7 @@
                 {{request.startDate | date }}</td>
             <td style="width: 15%" (click)="openViewRequestDialog(request)" class="border-right name-column">
                 {{request.endDate | date}}</td>
-            <td style="width: 15%" (click)="openViewRequestDialog(request)"class="border-right name-column">
+            <td style="width: 15%" (click)="openViewRequestDialog(request)" [style.color]="color(request)" class="border-right name-column">
                 {{request.status}}</td>
             <td style="width: 10%"><a (click)="openViewRequestDialog(request)" class="btn btn-success btn-small">
                     <span class="fas fa-eye"></span>

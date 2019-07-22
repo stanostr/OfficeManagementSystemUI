@@ -22,6 +22,7 @@
   }
   
   #main-container {
+    height: 100%;
     margin: 26px auto;
     padding: 26px;
     border-radius: 10px;

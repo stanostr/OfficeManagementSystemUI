@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeHomepageComponent } from './employee/employee-homepage.component';
@@ -41,6 +41,7 @@ import { EmployeeLeaveComponent } from './employee/employee-leave/employee-leave
 import { EmployeeRoomsComponent } from './employee/employee-rooms/employee-rooms.component';
 import { EmployeeOverviewComponent } from './employee/employee-overview/employee-overview.component';
 import { EmployeeTaskViewComponent } from './employee/employee-tasks/employee-task-view/employee-task-view.component';
+import { EmployeeLeaveViewComponent } from './employee/employee-leave/employee-leave-view/employee-leave-view.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { EmployeeTaskViewComponent } from './employee/employee-tasks/employee-ta
     EmployeeLeaveComponent,
     EmployeeRoomsComponent,
     EmployeeOverviewComponent,
-    EmployeeTaskViewComponent
+    EmployeeTaskViewComponent,
+    EmployeeLeaveViewComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import { EmployeeTaskViewComponent } from './employee/employee-tasks/employee-ta
     FormsModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     AppComponent,
@@ -97,6 +100,7 @@ import { EmployeeTaskViewComponent } from './employee/employee-tasks/employee-ta
     DeleteDeptComponent,
     AddDeptComponent,
     AdminEditLeaveComponent,
+    EmployeeLeaveViewComponent,
     AdminDeleteLeaveComponent,
     AdminAddMeetingRoomComponent,
     AdminAddTrainingRoomComponent,

@@ -1,0 +1,8 @@
+.subcomponent-navbar
+{
+    border-bottom:2px solid darkslategray;
+}
+
+.nav-link {
+    cursor: pointer; 
+}
