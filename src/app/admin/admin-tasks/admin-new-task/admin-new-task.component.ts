@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from 'src/app/_model/task';
 import { MatDialogRef } from '@angular/material';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { AdminEmployeeService } from 'src/app/_services/admin-services/admin-employee.service';
+import { Employee } from 'src/app/_model/employee';
 
 @Component({
   selector: 'app-admin-new-task',
@@ -9,14 +11,27 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./admin-new-task.component.css']
 })
 export class AdminNewTaskComponent implements OnInit {
+  employees:Employee[];
   task:Task;
   startDate: NgbDateStruct;
   dueDate: NgbDateStruct;
 
-  constructor(public dialogRef: MatDialogRef<AdminNewTaskComponent>) { }
+  constructor(public dialogRef: MatDialogRef<AdminNewTaskComponent>, private employeeService:AdminEmployeeService) { }
 
   ngOnInit() {
     this.task = new Task();
+    this.employeeService.getAllEmployees().subscribe(
+      result=>
+      {
+        this.employees = result;
+        this.task.employeeId = this.employees[0].id;
+      }
+    )
+  }
+
+  setEmp(e)
+  {
+    this.task.employeeId = e.substr(0, e.indexOf(' '));
   }
 
   validate()

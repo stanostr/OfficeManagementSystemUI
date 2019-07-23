@@ -1,0 +1,19 @@
+.checkbox {
+    margin: 8px;
+}
+
+.fa-check {
+    color: green
+}
+ 
+.fa-times {
+    color: red
+}
+
+td, th {
+    margin-right: 6px;
+    margin-left: 6px;
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

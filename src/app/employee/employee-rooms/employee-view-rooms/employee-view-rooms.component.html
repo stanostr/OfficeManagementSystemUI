@@ -1,0 +1,38 @@
+<alert></alert>
+<label class="checkbox"><input type="checkbox" style="margin-right: 3px" [(ngModel)]="showTrainingRooms"> Training Rooms</label>
+<label class="checkbox"><input type="checkbox" style="margin-right: 3px" [(ngModel)]="showMeetingRooms"> Meeting Rooms</label>
+
+<div class="container-fluid table-responsive" id="wrapper">
+    <table class="table-hover" style="width: 100%">
+        <thead>
+            <tr class="d-flex">
+                <th style="width: 30%">Room</th>
+                <th style="width: 20%">Capacity</th>
+                <th style="width: 20%">Projector?</th>
+                <th style="width: 20%">Whiteboard</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="showTrainingRooms">
+            <tr *ngFor="let room of trainingRooms" class="d-flex">
+                <td style="width: 30%" class="border-right">{{room.name}}</td>
+                <td style="width: 20%" class="border-right">{{room.capacity}}</td>
+                <td style="width: 20%" class="border-right"> <span *ngIf="!room.projectorAvail"
+                        class="fas fa-times"></span><span *ngIf="room.projectorAvail" class="fas fa-check"></span></td>
+                <td style="width: 20%" class="border-right"><span *ngIf="!room.whiteboardAvail"
+                        class="fas fa-times"></span><span *ngIf="room.whiteboardAvail" class="fas fa-check"></span></td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="showMeetingRooms">
+            <tr *ngFor="let room of meetingRooms" class="d-flex">
+                <td style="width: 30%" class="border-right">{{room.name}}</td>
+                <td style="width: 20%" class="border-right">{{room.capacity}}</td>
+                <td style="width: 20%" class="border-right">
+                    <span class="fas fa-minus"></span></td>
+                <td style="width: 20%" class="border-right"><span class="fas fa-minus"></span></td>
+            </tr>
+        </tbody>
+        <p *ngIf="showMeetingRooms && showTrainingRooms && meetingRooms==null && trainingRooms==null" class="alert alert-danger">No rooms found!</p>
+        <p *ngIf="showMeetingRooms && !showTrainingRooms && meetingRooms==null" class="alert alert-danger">No meeting rooms found!</p>
+        <p *ngIf="!showMeetingRooms && showTrainingRooms && meetingRooms==null" class="alert alert-danger">No training rooms found!</p>
+    </table>
+</div>

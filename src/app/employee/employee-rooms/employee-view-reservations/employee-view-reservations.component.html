@@ -1,0 +1,24 @@
+<alert></alert>
+<div class="container-fluid table-responsive" id="wrapper">
+        <table class="table-hover" style="width: 100%">
+            <thead>
+                <tr class="d-flex">
+                    <th style="width: 20%">Room</th>
+                    <th style="width: 20%">Date</th>
+                    <th style="width: 15%">From</th>
+                    <th style="width: 15%">To</th>
+                    <th style="width: 20%"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reservation of reservations" class="d-flex">
+                    <td style="width: 20%" class="border-right">{{reservation.room?.name}}</td>
+                    <td style="width: 15%" class="border-right">{{reservation.startTime | date}}</td>
+                    <td style="width: 15%" class="border-right">{{reservation.startTime | date: 'shortTime'}}</td>
+                    <td style="width: 20%" class="border-right">{{reservation.endTime | date: 'shortTime'}}</td>
+                    <td style="width: 20%" [style.color]="color(reservation)">{{reservation.status}}</td>
+                </tr>
+            </tbody>
+            <p *ngIf="reservations==null" class="alert alert-danger">No reservations found!</p>
+        </table>
+    </div>

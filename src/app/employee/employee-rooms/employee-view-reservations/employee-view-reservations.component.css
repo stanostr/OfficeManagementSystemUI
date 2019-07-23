@@ -1,0 +1,6 @@
+td, th {
+    margin: 6px;
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

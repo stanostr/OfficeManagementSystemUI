@@ -3,6 +3,8 @@ import { EmployeeLeaveService } from 'src/app/_services/employee-services/employ
 import { LeaveRequest } from 'src/app/_model/leave-request';
 import { AlertService } from 'src/app/_services/alert.service';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { EmployeeLeaveViewComponent } from './employee-leave-view/employee-leave-view.component';
 
 @Component({
   selector: 'app-employee-leave',
@@ -17,7 +19,7 @@ export class EmployeeLeaveComponent implements OnInit {
   requests: LeaveRequest[];
   showList: boolean;
   constructor(private leaveService: EmployeeLeaveService,
-    private alertService: AlertService) { }
+    private alertService: AlertService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.showList = false;
@@ -42,7 +44,14 @@ export class EmployeeLeaveComponent implements OnInit {
 
   openViewRequestDialog(request:LeaveRequest)
   {
-
+    let dialogRef: MatDialogRef<EmployeeLeaveViewComponent>;
+    dialogRef = this.dialog.open(EmployeeLeaveViewComponent, {
+      disableClose: false
+    });
+    dialogRef.componentInstance.request = request;
+    dialogRef.afterClosed().subscribe(() => {
+      dialogRef = null;
+    });
   }
 
   deleteLeaveRequest(request: LeaveRequest) {

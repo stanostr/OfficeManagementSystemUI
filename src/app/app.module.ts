@@ -13,7 +13,7 @@ import { HttpInterceptorService } from './_services/http-interceptor.service';
 import { AuthGuard, AdminAuthGuard } from './auth.guard';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminReservationsComponent } from './admin/admin-reservations/admin-reservations.component';
-import { AdminTasksComponent} from './admin/admin-tasks/admin-tasks.component';
+import { AdminTasksComponent } from './admin/admin-tasks/admin-tasks.component';
 import { AdminLeavesComponent } from './admin/admin-leaves/admin-leaves.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { MatDialogModule, MatDialogRef } from "@angular/material";
@@ -39,9 +39,12 @@ import { AdminReservationViewComponent } from './admin/admin-reservations/admin-
 import { EmployeeTasksComponent } from './employee/employee-tasks/employee-tasks.component';
 import { EmployeeLeaveComponent } from './employee/employee-leave/employee-leave.component';
 import { EmployeeRoomsComponent } from './employee/employee-rooms/employee-rooms.component';
-import { EmployeeOverviewComponent } from './employee/employee-overview/employee-overview.component';
 import { EmployeeTaskViewComponent } from './employee/employee-tasks/employee-task-view/employee-task-view.component';
 import { EmployeeLeaveViewComponent } from './employee/employee-leave/employee-leave-view/employee-leave-view.component';
+import { EmployeeViewReservationsComponent } from './employee/employee-rooms/employee-view-reservations/employee-view-reservations.component';
+import { EmployeeViewRoomsComponent } from './employee/employee-rooms/employee-view-rooms/employee-view-rooms.component';
+import { NewReservationComponent } from './employee/employee-rooms/new-reservation/new-reservation.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [
@@ -75,9 +78,11 @@ import { EmployeeLeaveViewComponent } from './employee/employee-leave/employee-l
     EmployeeTasksComponent,
     EmployeeLeaveComponent,
     EmployeeRoomsComponent,
-    EmployeeOverviewComponent,
     EmployeeTaskViewComponent,
-    EmployeeLeaveViewComponent
+    EmployeeLeaveViewComponent,
+    EmployeeViewReservationsComponent,
+    EmployeeViewRoomsComponent,
+    NewReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -87,14 +92,16 @@ import { EmployeeLeaveViewComponent } from './employee/employee-leave/employee-l
     MatDialogModule,
     BrowserAnimationsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   entryComponents: [
     AppComponent,
     AdminNewTaskComponent,
-    AdminDeleteTaskComponent, 
-    AdminEditTaskComponent, 
-    DeleteUserComponent, 
+    AdminDeleteTaskComponent,
+    AdminEditTaskComponent,
+    DeleteUserComponent,
     ViewEditUserComponent,
     AddUserComponent,
     DeleteDeptComponent,
@@ -106,9 +113,10 @@ import { EmployeeLeaveViewComponent } from './employee/employee-leave/employee-l
     AdminAddTrainingRoomComponent,
     AdminDeleteRoomComponent,
     AdminReservationViewComponent,
-    EmployeeTaskViewComponent
+    EmployeeTaskViewComponent,
+    NewReservationComponent
   ],
-  providers: [AlertService, AuthGuard, AdminAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, {provide: MatDialogRef, useValue: {}}],
+  providers: [AlertService, AuthGuard, AdminAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, { provide: MatDialogRef, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

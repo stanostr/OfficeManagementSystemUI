@@ -1,0 +1,40 @@
+<mat-dialog-content>
+        <p>
+                <input type="radio" name="training_button" [(ngModel)]="training" [value]="true">Training Room
+                <input type="radio" name="meeting_button" [(ngModel)]="training" [value]="false">Meeting Room
+        </p>
+        <div *ngIf="training" class="line-2">
+                <label for="select-room">Select Room</label>
+                <select (change)="setRoom($event.target.value)" id="select-room" class="form-control">
+                        <option *ngFor="let room of trainingRooms">
+                                {{room.id}} {{room.name}}</option>
+                </select>
+        </div>
+        <div *ngIf="!training" class="line-2">
+                <label for="select-room2">Select Room</label>
+                <select (change)="setRoom($event.target.value)" id="select-room2" class="form-control">
+                        <option *ngFor="let room of meetingRooms">
+                                {{room.id}} {{room.name}}</option>
+                </select>
+        </div>
+        <div class="line-1">
+                <label for="date">Date:</label>
+                <input type="date" name="date" required class="form-control" placeholder="yyyy-mm-dd" [(ngModel)]="date"
+                        ngbDatepicker #d2="ngbDatepicker">
+        </div>
+
+        <div class="timepicker"> From:
+                <ngb-timepicker [(ngModel)]="timeFrom"></ngb-timepicker>
+        </div>
+
+        <div class="timepicker"> To:
+                <ngb-timepicker [(ngModel)]="timeTo"></ngb-timepicker>
+        </div>
+        <div *ngIf="error" class="error-message alert alert-danger">{{errorMessage}}</div>
+
+        <div md-dialog-actions>
+                <button mat-button class="btn btn-primary" style="margin-right: 16px"
+                        (click)="validate()">Reserve</button>
+                <button mat-button class="btn btn-secondary" (click)="dialogRef.close(-2)">Cancel</button>
+        </div>
+</mat-dialog-content>

@@ -15,7 +15,7 @@ export class AdminRoomService {
   }
   public getAllMeetingRooms():Observable<MeetingRoom[]>
   {
-    return this.httpClient.get<TrainingRoom[]>('http://localhost:8081/admin/meeting');
+    return this.httpClient.get<MeetingRoom[]>('http://localhost:8081/admin/meeting');
   }
 
   public deleteMeetingRoom(room:MeetingRoom)

@@ -1,0 +1,17 @@
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+ 
+input {
+    margin: 8px;
+}
+
+.timepicker {
+    margin: 5px;
+    float: left;
+    width: 45%;
+}
+
+.error-message {
+    margin: 8px;
+    width: 90%;
+    clear: both;
+}
