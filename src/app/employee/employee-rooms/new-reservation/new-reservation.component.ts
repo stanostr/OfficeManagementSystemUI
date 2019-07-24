@@ -66,10 +66,9 @@ export class NewReservationComponent implements OnInit {
         if(this.training) this.reservation.roomId = this.trainingRooms[0].id;
         else this.reservation.roomId = this.meetingRooms[0].id;
       }
-      this.timeFrom.hour = this.timeFrom.hour + 4;
-      this.timeTo.hour = this.timeTo.hour + 2; //don't ask, don't tell :) This never happened.
 
       this.reservation.startTime = this.dateAndTimeToJSON(this.date, this.timeFrom);
+      if(this.timeTo.minute > 0 ) this.timeTo.hour = this.timeTo.hour + 1;
       this.reservation.endTime = this.dateAndTimeToJSON(this.date, this.timeTo);
       if (this.training)
         this.roomService.postTrainingReservation(this.reservation).subscribe(
@@ -110,6 +109,6 @@ export class NewReservationComponent implements OnInit {
     var minute: string = t.minute.toString();
     if (minute.length == 1) minute = '0' + minute;
   
-    return n.year + '-' + month + '-' + day + 'T' + hour + ':' + minute + ':00.000Z';
+    return n.year + '-' + month + '-' + day + 'T' + hour + ':00:00.000-0400'; 
   }
 }
