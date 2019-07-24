@@ -12,10 +12,10 @@
                     <div class="nav-item nav-link disabled" style="color: black">Time: {{currTime | date:'h:mm a'}}</div>
                 </div>
                 <div class="navbar-nav" id="sidebar-options">
-                        <a [routerLink]="['./leave_requests']"
-                            class="nav-item nav-link">Leave Requests</a>
                         <a [routerLink]="['./tasks']" class="nav-item nav-link">My Tasks</a>
-                        <a [routerLink]="['./reservations/view_reservations']" class="nav-item nav-link">Reservations</a>
+                        <a [routerLink]="['./reservations/view_reservations']" class="nav-item nav-link"> Room Reservations</a>
+                        <a [routerLink]="['./leave_requests']"
+                        class="nav-item nav-link">Leave Requests</a>
                     </div>
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link" routerLink="/logout">Logout</a>
@@ -30,10 +30,10 @@
             <div *ngIf="currentUser" class="sidebar-heading">Welcome, {{currentUser.firstName}}!</div>
             <img src="assets/images/default_user_img.png" class="img-responsive" alt="" id="profile-img">
             <div class="list-group list-group-flush">
-                <a [routerLink]="['./leave_requests']"
-                    class="list-group-item list-group-item-action bg-light">Leave Requests</a>
                 <a [routerLink]="['./tasks']" class="list-group-item list-group-item-action bg-light">My Tasks</a>
-                <a [routerLink]="['./reservations/view_reservations']" class="list-group-item list-group-item-action bg-light">Reservations</a>
+                <a [routerLink]="['./reservations/view_reservations']" class="list-group-item list-group-item-action bg-light">Room Reservations</a>
+                <a [routerLink]="['./leave_requests']"
+                class="list-group-item list-group-item-action bg-light">Leave Requests</a>
             </div>
         </div>
     

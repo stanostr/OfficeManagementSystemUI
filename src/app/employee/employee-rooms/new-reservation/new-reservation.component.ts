@@ -29,20 +29,25 @@ export class NewReservationComponent implements OnInit {
     this.getTrainingRooms();
     this.getMeetingRooms();
   }
+
   getMeetingRooms() {
     this.roomService.getAllMeetingRooms().subscribe(
-      result => this.meetingRooms = result
+      result => {
+        this.meetingRooms = result;
+      }
     );
   }
   getTrainingRooms() {
     this.roomService.getAllTrainingRooms().subscribe(
-      result => this.trainingRooms = result
+      result => 
+      {
+        this.trainingRooms = result;
+      }
     );
   }
   setRoom(e) {
   
     this.reservation.roomId = e.substr(0, e.indexOf(' '));
-    console.log(this.reservation.roomId);
   }
 
   validate() {
@@ -56,6 +61,14 @@ export class NewReservationComponent implements OnInit {
       this.errorMessage = 'Choose a date!'
     }
     else {
+      if(this.reservation.roomId==null)
+      {
+        if(this.training) this.reservation.roomId = this.trainingRooms[0].id;
+        else this.reservation.roomId = this.meetingRooms[0].id;
+      }
+      this.timeFrom.hour = this.timeFrom.hour + 4;
+      this.timeTo.hour = this.timeTo.hour + 2; //don't ask, don't tell :) This never happened.
+
       this.reservation.startTime = this.dateAndTimeToJSON(this.date, this.timeFrom);
       this.reservation.endTime = this.dateAndTimeToJSON(this.date, this.timeTo);
       if (this.training)
@@ -96,6 +109,7 @@ export class NewReservationComponent implements OnInit {
 
     var minute: string = t.minute.toString();
     if (minute.length == 1) minute = '0' + minute;
+  
     return n.year + '-' + month + '-' + day + 'T' + hour + ':' + minute + ':00.000Z';
   }
 }

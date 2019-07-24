@@ -35,9 +35,9 @@ export class EmployeeRoomsComponent implements OnInit {
       else if(result==TAKEN) {
         this.alertService.warn("Sorry, this time slot is unavailable for this room!")
       } 
-      else if (result==CANCELED) {
+      else if (result == null || result==CANCELED) {
       }
-      else this.alertService.error("An error has occurred, please try again later.")
+      else this.alertService.error("An error has occurred, please contact administrator.")
       dialogRef = null;
     });
   }
