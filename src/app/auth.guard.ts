@@ -32,3 +32,19 @@ export class AdminAuthGuard implements CanActivate {
         return false;
     }
 }
+
+@Injectable()
+export class EmployeeAuthGuard implements CanActivate {
+
+    constructor(private router: Router) { }
+
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        if(sessionStorage.getItem('role')=='ROLE_USER') {
+            return true;
+        }
+        if(sessionStorage.getItem('role')=='ROLE_ADMIN')
+            this.router.navigate(['admin'], { queryParams: { returnUrl: state.url }});
+        else this.router.navigate(['login'], { queryParams: { returnUrl: state.url }});
+        return false;
+    }
+}

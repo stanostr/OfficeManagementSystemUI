@@ -4,7 +4,7 @@ import { AdminHomepageComponent } from './admin/admin-homepage.component';
 import { EmployeeHomepageComponent } from './employee/employee-homepage.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
-import { AuthGuard, AdminAuthGuard } from './auth.guard';
+import { AuthGuard, AdminAuthGuard, EmployeeAuthGuard } from './auth.guard';
 import { AdminLeavesComponent } from './admin/admin-leaves/admin-leaves.component';
 import { AdminReservationsComponent } from './admin/admin-reservations/admin-reservations.component';
 import { AdminTasksComponent } from './admin/admin-tasks/admin-tasks.component';
@@ -16,6 +16,7 @@ import { EmployeeRoomsComponent } from './employee/employee-rooms/employee-rooms
 import { EmployeeTasksComponent } from './employee/employee-tasks/employee-tasks.component';
 import { EmployeeViewReservationsComponent } from './employee/employee-rooms/employee-view-reservations/employee-view-reservations.component';
 import { EmployeeViewRoomsComponent } from './employee/employee-rooms/employee-view-rooms/employee-view-rooms.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -33,17 +34,17 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'employee', component: EmployeeHomepageComponent, canActivate: [AuthGuard],
+    path: 'employee', component: EmployeeHomepageComponent, canActivate: [AuthGuard, EmployeeAuthGuard],
     children: [
       { path: '', redirectTo: 'tasks', pathMatch: 'full' },
       { path: 'leave_requests', component: EmployeeLeaveComponent },
       {
         path: 'reservations', component: EmployeeRoomsComponent,
-        children: 
-        [
-          { path: 'view_reservations', component: EmployeeViewReservationsComponent }, 
-          { path: 'view_rooms', component: EmployeeViewRoomsComponent }
-        ]
+        children:
+          [
+            { path: 'view_reservations', component: EmployeeViewReservationsComponent },
+            { path: 'view_rooms', component: EmployeeViewRoomsComponent }
+          ]
       },
       { path: 'tasks', component: EmployeeTasksComponent }
     ]
@@ -52,7 +53,9 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   {
     path: 'logout', component: LogoutComponent
-  }
+  },
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({

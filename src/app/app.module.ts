@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './_services/http-interceptor.service';
-import { AuthGuard, AdminAuthGuard } from './auth.guard';
+import { AuthGuard, AdminAuthGuard, EmployeeAuthGuard } from './auth.guard';
 import { AdminReservationsComponent } from './admin/admin-reservations/admin-reservations.component';
 import { AdminTasksComponent } from './admin/admin-tasks/admin-tasks.component';
 import { AdminLeavesComponent } from './admin/admin-leaves/admin-leaves.component';
@@ -45,6 +45,7 @@ import { EmployeeViewRoomsComponent } from './employee/employee-rooms/employee-v
 import { NewReservationComponent } from './employee/employee-rooms/new-reservation/new-reservation.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { WeatherComponent } from './weather/weather.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { WeatherComponent } from './weather/weather.component';
     EmployeeViewReservationsComponent,
     EmployeeViewRoomsComponent,
     NewReservationComponent,
-    WeatherComponent
+    WeatherComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -117,7 +119,7 @@ import { WeatherComponent } from './weather/weather.component';
     NewReservationComponent,
     WeatherComponent
   ],
-  providers: [AlertService, AuthGuard, AdminAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, { provide: MatDialogRef, useValue: {} }],
+  providers: [AlertService, AuthGuard, AdminAuthGuard, EmployeeAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, { provide: MatDialogRef, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

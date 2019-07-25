@@ -1,0 +1,17 @@
+* {
+    font: 16px/2em Lato, serif;
+}
+
+b {
+    font-weight: bold;
+}
+
+#main-container {
+    margin: 26px auto;
+    padding: 26px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    opacity: 0.8;
+  }
+
