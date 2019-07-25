@@ -77,3 +77,7 @@
       margin-left: -15rem;
     }
   }
+
+  .nav-link {
+    cursor: pointer;
+  }

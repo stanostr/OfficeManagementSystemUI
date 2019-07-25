@@ -11,7 +11,6 @@ import { LogoutComponent } from './logout/logout.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './_services/http-interceptor.service';
 import { AuthGuard, AdminAuthGuard } from './auth.guard';
-import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminReservationsComponent } from './admin/admin-reservations/admin-reservations.component';
 import { AdminTasksComponent } from './admin/admin-tasks/admin-tasks.component';
 import { AdminLeavesComponent } from './admin/admin-leaves/admin-leaves.component';
@@ -45,6 +44,7 @@ import { EmployeeViewReservationsComponent } from './employee/employee-rooms/emp
 import { EmployeeViewRoomsComponent } from './employee/employee-rooms/employee-view-rooms/employee-view-rooms.component';
 import { NewReservationComponent } from './employee/employee-rooms/new-reservation/new-reservation.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,6 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     AdminHomepageComponent,
     LoginComponent,
     LogoutComponent,
-    AdminDashboardComponent,
     AdminReservationsComponent,
     AdminTasksComponent,
     AdminLeavesComponent,
@@ -82,7 +81,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     EmployeeLeaveViewComponent,
     EmployeeViewReservationsComponent,
     EmployeeViewRoomsComponent,
-    NewReservationComponent
+    NewReservationComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
@@ -114,7 +114,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     AdminDeleteRoomComponent,
     AdminReservationViewComponent,
     EmployeeTaskViewComponent,
-    NewReservationComponent
+    NewReservationComponent,
+    WeatherComponent
   ],
   providers: [AlertService, AuthGuard, AdminAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, { provide: MatDialogRef, useValue: {} }],
   bootstrap: [AppComponent]

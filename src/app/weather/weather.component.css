@@ -1,0 +1,10 @@
+* {
+    font: 16px/2em Lato, serif;
+}
+
+b {
+    font-weight: bold;
+}
+input, button {
+    margin: 8px;
+}

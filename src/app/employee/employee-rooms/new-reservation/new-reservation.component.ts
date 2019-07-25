@@ -109,6 +109,6 @@ export class NewReservationComponent implements OnInit {
     var minute: string = t.minute.toString();
     if (minute.length == 1) minute = '0' + minute;
   
-    return n.year + '-' + month + '-' + day + 'T' + hour + ':00:00.000-0400'; 
+    return n.year + '-' + month + '-' + day + 'T' + hour + ':00:00.000-0500'; 
   }
 }

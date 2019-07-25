@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
         {
           this.router.navigate(['employee'])
         }
+        if(!sessionStorage.getItem('units')) sessionStorage.setItem('units', 'imperial');
     },
     error => {
       if(error.status==401)

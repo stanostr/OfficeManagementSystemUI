@@ -10,6 +10,7 @@
             <div class="navbar-nav">
                 <div class="nav-item nav-link disabled" style="color: black">Date: {{currTime | date}}</div>
                 <div class="nav-item nav-link disabled" style="color: black">Time: {{currTime | date:'h:mm a'}}</div>
+                <div *ngIf="currWeather" class="nav-item nav-link"  (click)="openWeather()">Weather: {{currWeather.weather[0].description | titlecase}} {{currWeather.main?.temp | number:'1.0-0'}} &#176;{{weatherUnit}}</div>
             </div>
             <div class="navbar-nav" id="sidebar-options">
                     <a [routerLink]="['./employees']" class="nav-item nav-link">Users</a>

@@ -5,7 +5,6 @@ import { EmployeeHomepageComponent } from './employee/employee-homepage.componen
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard, AdminAuthGuard } from './auth.guard';
-import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminLeavesComponent } from './admin/admin-leaves/admin-leaves.component';
 import { AdminReservationsComponent } from './admin/admin-reservations/admin-reservations.component';
 import { AdminTasksComponent } from './admin/admin-tasks/admin-tasks.component';
@@ -24,7 +23,6 @@ const routes: Routes = [
     path: 'admin', component: AdminHomepageComponent, canActivate: [AuthGuard, AdminAuthGuard],
     children: [
       { path: '', redirectTo: 'employees', pathMatch: 'full' },
-      { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'leave_requests', component: AdminLeavesComponent },
       { path: 'reservations', component: AdminReservationsComponent },
       { path: 'tasks', component: AdminTasksComponent },
