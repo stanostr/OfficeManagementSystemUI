@@ -15,4 +15,11 @@ export class AdminAddMeetingRoomComponent implements OnInit {
     this.room = new MeetingRoom();
   }
 
+  validate(room:MeetingRoom)
+  {
+      if(room.name == null || room.name.length == 0 || room.capacity == null)
+        return;
+      else this.dialogRef.close(room);
+  }
+
 }

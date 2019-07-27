@@ -1,16 +1,17 @@
 <mat-dialog-content class="add-room-form">
-    <h4 style="text-align: center" class="display-5">New Training Room</h4>
-    <label for="room-name">Name:</label>
-    <input required [(ngModel)]="room.name" type="text" name="room-name" id="room-name-input" placeholder="Room Name"
-        class="form-control input-lg" />
-    <label for="room-name">Capacity:</label>
-    <input required [(ngModel)]="room.capacity" type="number" max="9999" min="1" name="room-name" id="room-name-input"
-        placeholder="Capacity" class="form-control input-lg" />
-    <label class="checkbox"><input type="checkbox" [(ngModel)]="room.projectorAvail">Has projector?</label>
-    <label class="checkbox"><input type="checkbox" [(ngModel)]="room.whiteboardAvail">Has whiteboard?</label>
-    <div md-dialog-actions>
-        <button mat-button class="btn btn-primary" style="margin-right: 16px"
-            (click)="dialogRef.close(room)">Save</button>
-        <button mat-button class="btn btn-secondary" (click)="dialogRef.close(null)">Cancel</button>
-    </div>
+    <form ngNativeValidate>
+        <h4 style="text-align: center" class="display-5">New Training Room</h4>
+        <label for="room-name">Name:</label>
+        <input required [(ngModel)]="room.name" type="text" name="room-name" id="room-name-input"
+            placeholder="Room Name" class="form-control input-lg" />
+        <label for="room-name">Capacity:</label>
+        <input required [(ngModel)]="room.capacity" type="number" max="9999" min="1" name="room-name"
+            id="room-name-input" placeholder="Capacity" class="form-control input-lg" />
+        <label class="checkbox"><input type="checkbox" [(ngModel)]="room.projectorAvail">Has projector?</label>
+        <label class="checkbox"><input type="checkbox" [(ngModel)]="room.whiteboardAvail">Has whiteboard?</label>
+        <div md-dialog-actions>
+            <button mat-button class="btn btn-primary" style="margin-right: 16px" (click)="validate(room)">Save</button>
+            <button mat-button class="btn btn-secondary" (click)="dialogRef.close(null)">Cancel</button>
+        </div>
+    </form>
 </mat-dialog-content>

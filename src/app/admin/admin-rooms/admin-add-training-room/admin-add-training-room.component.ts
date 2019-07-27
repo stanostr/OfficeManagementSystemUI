@@ -15,4 +15,11 @@ export class AdminAddTrainingRoomComponent implements OnInit {
     this.room = new TrainingRoom();
   }
 
+  validate(room:TrainingRoom)
+  {
+      if(room.name == null || room.name.length == 0 || room.capacity ==null)
+        return;
+      else this.dialogRef.close(room);
+  }
+
 }

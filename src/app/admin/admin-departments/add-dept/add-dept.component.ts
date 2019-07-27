@@ -16,4 +16,10 @@ export class AddDeptComponent implements OnInit {
     
   }
 
+  validate()
+  {
+    if(this.departmentName==null || this.departmentName.length == 0)
+    this.dialogRef.close(this.departmentName);
+  }
+
 }
