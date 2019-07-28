@@ -3,6 +3,7 @@ import { AlertService } from 'src/app/_services/alert.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { NewReservationComponent } from './new-reservation/new-reservation.component';
 import { Router } from '@angular/router';
+import { MessageService } from 'src/app/_services/message.service';
 
 @Component({
   selector: 'app-employee-rooms',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 export class EmployeeRoomsComponent implements OnInit {
 
   constructor(private router:Router, private alertService:AlertService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog, private messageService:MessageService) { }
 
   ngOnInit() {
   }
@@ -31,6 +32,7 @@ export class EmployeeRoomsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result==GOOD) {
         this.alertService.success("Reservation request sent.");
+        this.messageService.sendMessage('Refresh');
       }
       else if(result==TAKEN) {
         this.alertService.warn("Sorry, this time slot is unavailable for this room!")

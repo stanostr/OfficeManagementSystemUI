@@ -21,5 +21,4 @@ export class AddDeptComponent implements OnInit {
     if(this.departmentName==null || this.departmentName.length == 0)
     this.dialogRef.close(this.departmentName);
   }
-
 }

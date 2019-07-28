@@ -38,6 +38,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 26px;
+    clear: both;
   }
   
   #sidebar-wrapper .sidebar-heading {

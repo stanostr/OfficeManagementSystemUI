@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertService } from 'src/app/_services/alert.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MeetingRoom, TrainingRoom } from 'src/app/_model/room';
 import { EmployeeRoomService } from 'src/app/_services/employee-services/employee-room.service';
+import { MessageService } from 'src/app/_services/message.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-employee-view-rooms',
   templateUrl: './employee-view-rooms.component.html',
   styleUrls: ['./employee-view-rooms.component.css']
 })
-export class EmployeeViewRoomsComponent implements OnInit {
-
+export class EmployeeViewRoomsComponent implements OnInit{
   showTrainingRooms:boolean;
   showMeetingRooms:boolean;
   meetingRooms:MeetingRoom[];
   trainingRooms:TrainingRoom[];
-  constructor(private roomService:EmployeeRoomService, 
-    private alertService:AlertService) { }
+  subscription: Subscription;
+
+  constructor(private roomService:EmployeeRoomService) { }
 
   ngOnInit() {
     this.showMeetingRooms = true;
@@ -41,5 +42,4 @@ export class EmployeeViewRoomsComponent implements OnInit {
       }
     )
   }
-
 }
