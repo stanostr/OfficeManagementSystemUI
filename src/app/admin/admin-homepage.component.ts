@@ -7,6 +7,7 @@ import { WeatherResponse } from '../_model/weather/weather-response';
 import { LocationResponse } from '../_model/location-response';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { WeatherComponent } from '../weather/weather.component';
+import { NewsComponent } from '../news/news.component';
 
 @Component({
   selector: 'app-admin-homepage',
@@ -32,7 +33,7 @@ export class AdminHomepageComponent implements OnInit {
     //updates the time at 30 second intervals
     setInterval(() => {
       this.currTime = new Date();
-    }, 30);
+    }, 1000);
   }
 
   ngOnInit() {
@@ -63,7 +64,6 @@ export class AdminHomepageComponent implements OnInit {
     this.weatherService.getLocation().subscribe(
       result => {
         this.currLocation = result.body;
-        console.log('Zip: ' + this.currLocation.zip);
         this.weatherService.getWeatherByZip(this.currLocation.zip, sessionStorage.getItem('units')).subscribe(
           result => {
             this.currWeather = result.body;
@@ -99,4 +99,11 @@ export class AdminHomepageComponent implements OnInit {
     });
   }
 
+  openNews()
+  {
+    let dialogRef: MatDialogRef<NewsComponent>;
+    dialogRef = this.dialog.open(NewsComponent, {
+      disableClose: false,
+    });
+  }
 }

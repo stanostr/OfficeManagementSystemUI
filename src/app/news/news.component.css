@@ -1,0 +1,17 @@
+mat-dialog-content {
+    min-width: 90vh;
+    min-height: 90vh;
+    max-height: 95vh;
+    max-width: 95vh;
+}
+
+*article-holder {
+    margin: 8px;
+}
+
+td {
+    margin:6px;
+    padding: 8px;
+}
+
+

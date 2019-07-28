@@ -43,9 +43,9 @@ import { EmployeeLeaveViewComponent } from './employee/employee-leave/employee-l
 import { EmployeeViewReservationsComponent } from './employee/employee-rooms/employee-view-reservations/employee-view-reservations.component';
 import { EmployeeViewRoomsComponent } from './employee/employee-rooms/employee-view-rooms/employee-view-rooms.component';
 import { NewReservationComponent } from './employee/employee-rooms/new-reservation/new-reservation.component';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { WeatherComponent } from './weather/weather.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +84,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     EmployeeViewRoomsComponent,
     NewReservationComponent,
     WeatherComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -94,9 +95,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatDialogModule,
     BrowserAnimationsModule,
     NgbModule,
-    ReactiveFormsModule,
-    OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    ReactiveFormsModule
   ],
   entryComponents: [
     AppComponent,
@@ -117,7 +116,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AdminReservationViewComponent,
     EmployeeTaskViewComponent,
     NewReservationComponent,
-    WeatherComponent
+    WeatherComponent,
+    NewsComponent
   ],
   providers: [AlertService, AuthGuard, AdminAuthGuard, EmployeeAuthGuard, { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }, { provide: MatDialogRef, useValue: {} }],
   bootstrap: [AppComponent]

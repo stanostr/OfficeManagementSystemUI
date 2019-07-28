@@ -9,10 +9,11 @@
         <div class="navbar-collapse">
             <div class="navbar-nav">
                 <div class="nav-item nav-link disabled" style="color: black">Date: {{currTime | date}}</div>
-                <div class="nav-item nav-link disabled" style="color: black">Time: {{currTime | date:'h:mm a'}}</div>
+                <div class="nav-item nav-link disabled" style="color: black">Time: {{currTime | date:'h:mm:ss a'}}</div>
                 <div *ngIf="currWeather" class="nav-item nav-link"  (click)="openWeather()">Weather: {{currWeather.weather[0].description | titlecase}} {{currWeather.main?.temp | number:'1.0-0'}} &#176;{{weatherUnit}}</div>
             </div>
             <div class="navbar-nav" id="sidebar-options">
+                    <a (click)=openNews()  class="nav-item nav-link">Current News</a>
                     <a [routerLink]="['./employees']" class="nav-item nav-link">Users</a>
                     <a [routerLink]="['./departments']" class="nav-item nav-link">Departments</a>
                     <a [routerLink]="['./leave_requests']"
@@ -34,6 +35,7 @@
         <div *ngIf="currentUser" class="sidebar-heading">Welcome, {{currentUser.firstName}}!</div>
         <img src="assets/images/default_user_img.png" class="img-responsive" alt="" id="profile-img">
         <div class="list-group list-group-flush">
+            <a (click)=openNews() class="list-group-item list-group-item-action bg-light">Current News</a>
             <a [routerLink]="['./employees']" class="list-group-item list-group-item-action bg-light">Users</a>
             <a [routerLink]="['./departments']" class="list-group-item list-group-item-action bg-light">Departments</a>
             <a [routerLink]="['./leave_requests']"

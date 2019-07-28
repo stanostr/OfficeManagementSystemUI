@@ -4,9 +4,9 @@ import { Employee } from '../_model/employee';
 import { WeatherService } from '../_services/weather.service';
 import { LocationResponse } from '../_model/location-response';
 import { WeatherResponse } from '../_model/weather/weather-response';
-import { HttpParams } from '@angular/common/http';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { WeatherComponent } from '../weather/weather.component';
+import { NewsComponent } from '../news/news.component';
 
 @Component({
   selector: 'app-employee-homepage',
@@ -21,15 +21,15 @@ export class EmployeeHomepageComponent implements OnInit {
   showMenu: boolean = false;
   currentUser: Employee;
 
-  toggleCollapse() {
-    this.showMenu = !this.showMenu;
-  }
   constructor(private getEmployeeService: GetEmployeeDetailsService,
     private weatherService: WeatherService, public dialog: MatDialog) {
-    //updates the time at 30 second intervals
     setInterval(() => {
       this.currTime = new Date();
-    }, 60);
+    }, 1000);
+  }
+
+  toggleCollapse() {
+    this.showMenu = !this.showMenu;
   }
 
   ngOnInit() {
@@ -73,8 +73,7 @@ export class EmployeeHomepageComponent implements OnInit {
     dialogRef.componentInstance.currWeather = this.currWeather;
     dialogRef.componentInstance.currLocation = this.currLocation;
     dialogRef.afterClosed().subscribe(result => {
-      if (result)
-      {
+      if (result) {
         this.getWeather();
         this.getWeatherUnits();
       }
@@ -83,10 +82,30 @@ export class EmployeeHomepageComponent implements OnInit {
     );
   }
 
+  openNews() {
+    let dialogRef: MatDialogRef<NewsComponent>;
+    dialogRef = this.dialog.open(NewsComponent, {
+      disableClose: false,
+    });
+  }
+
   //hide the menu (if its open) on screen resize
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (window.innerWidth < 768) this.showMenu = false;
   }
+
+  // onFileChanged(event) {
+  //   this.selectedFile = event.target.files[0];
+  //   switch (this.selectedFile.type) {
+  //     case 'image/png':
+  //     case 'image/jpg':
+  //     case 'image/jpeg':
+  //     case 'image/gif':
+  //       console.log("Good file type: " + this.selectedFile.type);
+  //       break;
+  //     default: console.log("bad file type ")
+  //   }
+  // }
 
 }
