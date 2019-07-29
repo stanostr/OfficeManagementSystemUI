@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class NewsService {
   private static readonly API_KEY = '74170412961245baac34d0874e5b1438';
   private static readonly BASE_URL = 'https://newsapi.org/v2/top-headlines?'
-  private sources = ['fox-news', 'breitbart-news', 'national-review', 'rt', 'the-times-of-india', 'the-washington-times', 'the-american-conservative', 'fox-sports'];
+  private sources = ['fox-news', 'breitbart-news', 'national-review', 'rt', 'the-times-of-india', 'the-washington-times', 'the-american-conservative'];
   constructor(private httpClient: HttpClient) {}
 
   public getAllHeadlines(): Observable<NewsResponse> {

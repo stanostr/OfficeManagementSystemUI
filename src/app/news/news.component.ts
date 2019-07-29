@@ -20,7 +20,6 @@ export class NewsComponent implements OnInit {
 
   refresh()
   {
-    console.log("licked refresh");
     this.getNews();
   }
 

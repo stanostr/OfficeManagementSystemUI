@@ -2,7 +2,7 @@
     <form ngNativeValidate>
         <h4 style="text-align: center" class="display-5">Add new Department</h4>
         <label for="dept-name">Name:</label>
-        <input required [(ngModel)]="departmentName" type="text" name="dept-name" id="dept-name-input"
+        <input required maxlength="255" [(ngModel)]="departmentName" type="text" name="dept-name" id="dept-name-input"
             placeholder="New Department Name" class="form-control input-lg" />
         <div md-dialog-actions>
             <button mat-button class="btn btn-primary" style="margin-right: 16px"

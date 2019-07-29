@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LocationResponse } from '../_model/location-response';
 import { WeatherResponse } from '../_model/weather/weather-response';

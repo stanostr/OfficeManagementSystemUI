@@ -64,7 +64,7 @@
         </div>
         <div id="description-tab">
             <label for="description">Reason:</label>
-            <textarea name="description" class="form-control input-md" [(ngModel)]="newRequest.reason" rows="4"
+            <textarea name="description" maxlength="255" class="form-control input-md" [(ngModel)]="newRequest.reason" rows="4"
                 placeholder="Leave a detailed reason for your leave request"></textarea>
         </div>
         <div style="clear: both">
