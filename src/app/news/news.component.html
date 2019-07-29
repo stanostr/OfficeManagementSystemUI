@@ -1,16 +1,18 @@
 <mat-dialog-content>
-    <h5 class="display-5">Latest News Headlines<span (click)="refresh()" class="fas fa-sync" style="margin: 8px; float: right"></span></h5>
+    <button style="float: right" (click)="dialogRef.close(null)" ><span id="close-button" class="fas fa-times" style="margin: 8px"></span></button>
+    <button style="float: right" (click)="refresh()" ><span id="refresh-button" class="fas fa-sync" style="margin: 8px"></span></button>
+    <h5 class="display-5">Latest News Headlines</h5>
     <hr>
     <div *ngIf="!articles" class="alert alert-danger">No current news stories found!</div>
-    <div *ngIf="articles">
-        <table width="100%">
+    <div *ngIf="articles"  class="container-fluid table-responsive">
+        <table width="100%" class="d-flex">
             <tbody>
                 <tr class="article-holder" *ngFor="let article of articles">
-                    <td style="width: 30%" class="image-holder border-right" *ngIf="article.urlToImage">
-                        <img [src]="article.urlToImage" alt="Article thumbnail" height="128" width="128">
+                    <td style="width: 30%" class="image-holder" *ngIf="article.urlToImage">
+                        <img [src]="article.urlToImage" (click)="directToArticle(article)" alt="Article thumbnail" height="128" width="128">
                     </td>
-                    <td style="width: 70%" class="border-right">
-                        {{article.author}} <br> <a href="{{article.url}}" target="_blank"> {{article.title}}</a>
+                    <td class="border-bottom">
+                        <span> {{article.source?.name}} </span> <a href="{{article.url}}" target="_blank"> {{article.title}}</a>
                     </td>
                 </tr>
             </tbody>

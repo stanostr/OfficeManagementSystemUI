@@ -78,6 +78,6 @@ body {
   }
 }
 
-.nav-link {
+.nav-link, a {
   cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { NewsService } from '../_services/news.service';
-import { NewsResponse, Article } from '../_model/news/newsresponse';
+import { Article } from '../_model/news/newsresponse';
 
 @Component({
   selector: 'app-news',
@@ -20,6 +20,7 @@ export class NewsComponent implements OnInit {
 
   refresh()
   {
+    console.log("licked refresh");
     this.getNews();
   }
 
@@ -33,4 +34,8 @@ export class NewsComponent implements OnInit {
       })
   }
 
+  directToArticle(article:Article)
+  {
+    window.location.href = article.url;
+  }
 }
