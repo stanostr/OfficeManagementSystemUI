@@ -19,7 +19,9 @@ export class AdminAddTrainingRoomComponent implements OnInit {
   {
       if(room.name == null || room.name.length == 0 || room.capacity ==null)
         return;
-      else this.dialogRef.close(room);
+      else 
+        this.dialogRef.close(room);
+      
   }
 
 }

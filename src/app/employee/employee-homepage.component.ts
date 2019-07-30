@@ -95,17 +95,4 @@ export class EmployeeHomepageComponent implements OnInit {
     if (window.innerWidth < 768) this.showMenu = false;
   }
 
-  // onFileChanged(event) {
-  //   this.selectedFile = event.target.files[0];
-  //   switch (this.selectedFile.type) {
-  //     case 'image/png':
-  //     case 'image/jpg':
-  //     case 'image/jpeg':
-  //     case 'image/gif':
-  //       console.log("Good file type: " + this.selectedFile.type);
-  //       break;
-  //     default: console.log("bad file type ")
-  //   }
-  // }
-
 }
